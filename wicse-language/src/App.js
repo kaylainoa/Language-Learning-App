@@ -16,7 +16,7 @@ import GameBar from './Components/GameBar';
 import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Coconut';
-import BeachBall from './BeachBall';
+import BeachBall from './beachball';
 
 
 import logo from './logo.svg';
