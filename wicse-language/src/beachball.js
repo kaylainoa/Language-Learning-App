@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BeachBall() {
+function beachball() {
   return (
     <div>
       <h1>Beachball</h1>
@@ -8,4 +8,4 @@ function BeachBall() {
   );
 }
 
-export default Coconut;
+export default beachball;
