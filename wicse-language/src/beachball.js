@@ -1,11 +1,11 @@
 import React from 'react';
 
-function beachball() {
+function BeachBall() {
   return (
     <div>
-      <h1>Beachball</h1>
+      <h1>Beach Ball Game</h1>
     </div>
   );
 }
 
-export default beachball;
+export default BeachBall;
