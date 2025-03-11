@@ -9,6 +9,7 @@ const GameBar = () => {
       </div>
 
       <div className="navbar-right">
+        <Link to="login" className="navbar-link">Login</Link>
         <Link to="/" className="navbar-link">Home</Link>
         <Link to="/volcano" className="navbar-link">Volcano</Link>
         <Link to="/coral" className="navbar-link">Coral</Link>
