@@ -1,0 +1,217 @@
+/* Base Styles */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #56CCF2, #2F80ED);
+    position: relative;
+  }
+  
+  /* Wave Effects */
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  }
+  
+  .wave-1 {
+    height: 6rem;
+    opacity: 0.4;
+  }
+  
+  .wave-2 {
+    height: 4rem;
+    opacity: 0.7;
+  }
+  
+  .wave-3 {
+    height: 2rem;
+    opacity: 1;
+  }
+  
+  /* Login Card */
+  .login-card {
+    position: relative;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 24rem;
+    max-width: calc(100% - 2rem);
+    margin: 0 1rem;
+    border-top: 8px solid #FCD34D;
+  }
+  
+  /* Sun Icon */
+  .sun-icon {
+    position: absolute;
+    top: -2.5rem;
+    right: 2.5rem;
+    background-color: #FCD34D;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sun-icon div {
+    color: #D97706;
+    font-size: 1.875rem;
+  }
+  
+  /* Headings */
+  .login-card h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1E40AF;
+  }
+  
+  .subtitle {
+    text-align: center;
+    color: #6B7280;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form Elements */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1D4ED8;
+    margin-bottom: 0.25rem;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    color: #60A5FA;
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    padding: 0.5rem;
+    padding-left: 2.5rem;
+    border: 2px solid #DBEAFE;
+    border-radius: 0.5rem;
+    outline: none;
+    background-color: #EFF6FF;
+  }
+  
+  .input-wrapper input:focus {
+    border-color: #93C5FD;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Form Actions */
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remember-me input {
+    height: 1rem;
+    width: 1rem;
+    color: #3B82F6;
+    border-color: #D1D5DB;
+    border-radius: 0.25rem;
+  }
+  
+  .remember-me label {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #4B5563;
+  }
+  
+  .forgot-password {
+    font-size: 0.875rem;
+    color: #3B82F6;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login Button */
+  .login-button {
+    width: 100%;
+    background: linear-gradient(to right, #3B82F6, #06B6D4);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1.125rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(to right, #2563EB, #0891B2);
+  }
+  
+  /* Sign up Link */
+  .signup-link {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6B7280;
+  }
+  
+  .signup-link a {
+    color: #3B82F6;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Beach Decorations */
+  .palm-tree, .beach {
+    position: absolute;
+    bottom: -0.75rem;
+    font-size: 1.5rem;
+  }
+  
+  .palm-tree {
+    left: -0.75rem;
+  }
+  
+  .beach {
+    right: -0.75rem;
+  }

@@ -8,39 +8,39 @@ function Home() {
     id: i + 1,
     name: `Level ${i + 1}`
   }));
-
+  
   return (
     <div className="home-page">
-      <div className="bg-black bg-opacity-50 p-8 rounded-lg w-full max-w-5xl mx-auto">
+      <div className="content-container">
         <div className="headinghome">
-          <h1 className="text-4xl font-bold mb-3">Welcome, [Player's Name]!</h1>
-          <p className="text-lg">Continue where you left off, or backtrack for extra practice!</p>
+          <h1 className="title">Welcome, [Player's Name]!</h1>
+          <p className="subtitle">Continue where you left off, or backtrack for extra practice!</p>
         </div>
-
-        <div className="grid grid-cols-5 gap-4 mt-8">
+        
+        <div className="level-grid">
           {levels.map((level) => (
-            <div 
-              key={level.id} 
-              className="flex flex-col items-center transition-transform hover:scale-110 cursor-pointer"
+            <div
+              key={level.id}
+              className="level-item"
             >
-              <div className="relative">
-                <img 
+              <div className="level-image-container">
+                <img
                   id={`level${level.id}`}
-                  src={islandBlend} 
+                  src={islandBlend}
                   alt={`Island ${level.name}`}
                   style={{ width: '100%' }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-xl font-bold">{level.id}</span>
+                <div className="level-number-overlay">
+                  <span className="level-number">{level.id}</span>
                 </div>
               </div>
-              <span className="level-text mt-2 font-medium text-center">{level.name}</span>
+              <span className="level-text">{level.name}</span>
             </div>
           ))}
         </div>
-
-        <div className="mt-8 text-center">
-          {/* <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full transition-colors">
+        
+        <div className="button-container">
+          {/* <button className="primary-button">
             Continue Journey
           </button> */}
         </div>
