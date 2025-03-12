@@ -17,7 +17,11 @@ import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Coconut';
 import BeachBall from './beachball';
+
+// navbar links
 import Login from './Login';
+import Chat from './Chat';
+import Profile from './Profile';
 
 
 import logo from './logo.svg';
@@ -29,8 +33,13 @@ function App() {
       <div className="App">
         <GameBar />
         <Routes>
-          <Route path="/login" element={<Login />} />
+          {/* nav bar links */}
           <Route path="/" element={<Home />} />
+          <Route path="/chat" element={<Home />} />
+          <Route path="/profile" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+
+          {/* minigame pages */}
           <Route path="/volcano" element={<Volcanogame />} />
           <Route path="/coral" element={<Coral />} />
           <Route path="/surfing" element={<Surfing />} />
