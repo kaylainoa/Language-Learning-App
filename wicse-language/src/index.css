@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+/* Base styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -12,16 +16,366 @@ code {
     monospace;
 }
 
+/* Page Layout */
 .home-page {
-  background-image: url('./Assets/beach-background-blend.jpeg'); /* Adjust path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
+  background: linear-gradient(to bottom, #f5e6d3, #b8e0d8, #46C7AD);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-align: center;
+  overflow-y: auto;
+  padding-top: 50px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.home-page::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, rgba(70, 199, 173, 0.8) 0%, rgba(70, 199, 173, 0.3) 50%, transparent 100%);
+  z-index: 0;
+}
+
+.content-container {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Heading Styles */
+.headinghome {
+  margin-top: 0;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Sora', sans-serif;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #36635a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #36635a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  margin-top: 0;
+}
+
+/* Level Grid */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.level-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  text-decoration: none; /* Remove underline from links */
+}
+
+.level-item:hover {
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Linked Levels */
+.linked-level .level-image-container {
+  border-color: #FF9BBC; /* Pink border for linked levels */
+  position: relative;
+}
+
+.linked-level .level-image-container::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: #F7C22F;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.linked-level .level-number-overlay {
+  background-color: rgba(255, 155, 188, 0.5); /* Pink overlay */
+}
+
+.linked-level:hover .level-number-overlay {
+  background-color: rgba(255, 155, 188, 0.3);
+}
+
+.linked-level .level-text {
+  color: #b13f79; /* Darker pink for text */
+  font-weight: 600;
+}
+
+/* Game-specific styling */
+/* Level 3 - Beachball */
+.level-item:nth-child(3) .level-image-container {
+  border-color: #FF9BBC;
+}
+
+/* Level 6 - Coconut */
+.level-item:nth-child(6) .level-image-container {
+  border-color: #FF9BBC;
+}
+
+/* Level 9 - Coral */
+.level-item:nth-child(9) .level-image-container {
+  border-color: #FF9BBC;
+}
+
+/* Level 12 - Surfing */
+.level-item:nth-child(12) .level-image-container {
+  border-color: #FF9BBC;
+}
+
+/* Level 15 - Volcano */
+.level-item:nth-child(15) .level-image-container {
+  border-color: #FF9BBC;
+}
+
+/* Level Images */
+.level-image-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #F7C22F;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.level-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.level-item:hover .level-image-container img {
+  transform: scale(1.1);
+}
+
+.level-number-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(70, 199, 173, 0.5);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.level-item:hover .level-number-overlay {
+  background-color: rgba(70, 199, 173, 0.3);
+}
+
+.level-number {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.level-text {
+  font-family: 'Sora', sans-serif;
+  font-weight: 500;
+  color: #36635a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+  margin-top: 0.75rem;
   text-align: center;
+}
+
+/* Button Styles */
+.button-container {
+  margin-top: 2.5rem;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.primary-button {
+  display: inline-block;
+  background-color: #F7C22F;
+  color: #36635a;
+  font-weight: 700;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Sora', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.primary-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  transition: all 0.5s ease;
+}
+
+.primary-button:hover {
+  background-color: #e1af24;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.primary-button:hover::before {
+  left: 100%;
+}
+
+/* Decorative Elements */
+.seashell {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(45deg);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.seashell:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  width: 30px;
+  height: 30px;
+  background-color: #FF9BBC;
+}
+
+.seashell:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  width: 25px;
+  height: 25px;
+  background-color: #F7C22F;
+}
+
+.seashell:nth-child(3) {
+  bottom: 25%;
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  background-color: #F7C22F;
+}
+
+.seashell:nth-child(4) {
+  bottom: 15%;
+  right: 10%;
+  width: 35px;
+  height: 35px;
+  background-color: #FF9BBC;
+}
+
+/* Additional Decorative Elements */
+.palm-leaf {
+  position: absolute;
+  width: 60px;
+  height: 120px;
+  background-color: #46C7AD;
+  opacity: 0.3;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+
+.palm-leaf:nth-child(5) {
+  top: 5%;
+  left: 5%;
+  transform: rotate(30deg);
+}
+
+.palm-leaf:nth-child(6) {
+  bottom: 10%;
+  right: 5%;
+  transform: rotate(210deg);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .level-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .level-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .title {
+    font-size: 1.75rem; /* Adjusted font size for smaller screens */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Adjusted subtitle size */
+  }
+}
+
+@media (max-width: 480px) {
+  .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .level-image-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .primary-button {
+    font-size: 1rem;
+    padding: 0.6rem 2rem;
+  }
 }
