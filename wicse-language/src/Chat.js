@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Profile() {
+function Chat() {
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>Chat</h1>
     </div>
   );
 }
 
-export default Profile;
+export default Chat;

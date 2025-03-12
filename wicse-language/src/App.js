@@ -18,6 +18,8 @@ import Surfing from './Surfing';
 import Coconut from './Coconut';
 import BeachBall from './beachball';
 import Login from './Login';
+import Profile from './Profile';
+import Chat from './Chat';  
 
 
 import logo from './logo.svg';
@@ -29,13 +31,10 @@ function App() {
       <div className="App">
         <GameBar />
         <Routes>
-          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/volcano" element={<Volcanogame />} />
-          <Route path="/coral" element={<Coral />} />
-          <Route path="/surfing" element={<Surfing />} />
-          <Route path="/coconut" element={<Coconut />} />
-          <Route path="/beachball" element={<BeachBall />} />
+          <Route path="/Chat" element={<Chat />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </BrowserRouter>
