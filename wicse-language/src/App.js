@@ -17,6 +17,7 @@ import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Coconut';
 import BeachBall from './beachball';
+import Login from './Login';
 
 
 import logo from './logo.svg';
@@ -28,6 +29,7 @@ function App() {
       <div className="App">
         <GameBar />
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/volcano" element={<Volcanogame />} />
           <Route path="/coral" element={<Coral />} />
