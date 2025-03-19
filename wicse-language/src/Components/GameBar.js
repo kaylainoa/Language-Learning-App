@@ -10,11 +10,9 @@ const GameBar = () => {
 
       <div className="navbar-right">
         <Link to="/" className="navbar-link">Home</Link>
-        <Link to="/volcano" className="navbar-link">Volcano</Link>
-        <Link to="/coral" className="navbar-link">Coral</Link>
-        <Link to="/surfing" className="navbar-link">Surfing</Link>
-        <Link to="/coconut" className="navbar-link">Coconut</Link>
-        <Link to="/beachball" className="navbar-link">BeachBall</Link>
+        <Link to="chat" className="navbar-link">Chat</Link>
+        <Link to="/profile" className="navbar-link">Profile</Link>
+        <Link to="login" className="navbar-link">Login</Link>
       </div>
     </div>
   )
