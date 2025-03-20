@@ -10,14 +10,14 @@ const app = express();
 //middleware config
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(cors());
+//app.use(cors());
 
 //routes
 //app.use("/api/products", productRoute);
 
 const PORT = process.env.PORT || 3000; //dynamic port or default
-
-const uri = "mongodb+srv://abigailerefah:<password>@user-authentication.atn31.mongodb.net/?retryWrites=true&w=majority&appName=User-Authentication";
+//const uri = "mongodb+srv://abigailerefah:8491NKQcpKBhEvJn@user-authentication.atn31.mongodb.net/?retryWrites=true&w=majority&appName=User-Authentication";
+const uri = "mongodb+srv://abigailerefah:8491NKQcpKBhEvJn@user-authentication.atn31.mongodb.net/?retryWrites=true&w=majority&appName=User-Authentication";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 app.get('/', (req,res) => {
@@ -26,7 +26,7 @@ app.get('/', (req,res) => {
 });
 
 //connecting to frontend
-app.post('./login', (req, res) => {
+app.post('/login', (req, res) => {
   Product.create(req.body)
   .then(products => res.json(products))
   .catch(err => res.json(err))
