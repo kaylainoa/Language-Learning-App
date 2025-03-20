@@ -6,17 +6,29 @@ import bgImage from "./Assets/surfingbg.png";
 function Game() {
   const [parrotY, setParrotY] = useState(50); // Parrot's vertical position
   const [score, setScore] = useState(0);
-  const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
+  const [currentSentence, setCurrentSentence] = useState("El ___ es grande."); // Current sentence to display
   const [currentWords, setCurrentWords] = useState([
-    { text: "gato", correct: false, x: 100, y: 20 },
-    { text: "perro", correct: true, x: 100, y: 70 },
+    { text: "perro", correct: true, x: 100, y: 20 },
+    { text: "gata", correct: false, x: 100, y: 70 },
   ]);
 
   const sentences = [
-    { sentence: "El ___ es grande.", correctWord: "perro" },
-    { sentence: "El ___ está jugando.", correctWord: "gato" },
-    { sentence: "La ___ corre rápido.", correctWord: "liebre" },
-    { sentence: "El ___ está durmiendo.", correctWord: "león" },
+    { sentence: "El ___ es grande.", correct: "perro", answers: ["perro", "gata"] },
+    { sentence: "El ___ está jugando.", correct: "pajaro", answers: ["hombre", "pajaro"] },
+    { sentence: "La ___ corre rápido.", correct: "gata", answers: ["pajaro", "gata"] },
+    { sentence: "El ___ está durmiendo.", correct: "pajaro", answers: ["pajaro", "gata"] },
+    { sentence: "El ___ es pequeño.", correct: "hombre", answers: ["gata", "hombre"] },
+    { sentence: "La ___ es rápida.", correct: "gata", answers: ["hombre", "gata"] },
+    { sentence: "La ___ es pequeña.", correct: "gata", answers: ["pajaro", "gata"] },
+    { sentence: "El ___ vuela.", correct: "pajaro", answers: ["pajaro", "gato"] },
+    { sentence: "El ___ corre.", correct: "gato", answers: ["pajaro", "gato"] },
+    { sentence: "La ___ está comiendo.", correct: "gata", answers: ["gata", "perro"] },
+  ];
+
+  // The correct answers pattern (alternating top/bottom)
+  const answerPositions = [
+    "top", "bottom", "bottom", "top", "bottom", 
+    "bottom", "bottom", "top", "bottom", "top"
   ];
 
   // Up and Down motion of the parrot
@@ -53,31 +65,30 @@ function Game() {
       if (word.x < 10 && Math.abs(word.y - parrotY) < 10) {
         if (word.correct) {
           setScore((prev) => prev + 1); // Increase score if correct word is hit
-          
-          // Move to the next sentence
+
+          // Get the current sentence index
+          const currentSentenceIndex = sentences.findIndex(sentence => sentence.sentence === currentSentence);
+
+          // Get next sentence with alternating correct answers
           const nextSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
-          setCurrentSentenceIndex(nextSentenceIndex);
-          setCurrentWords(generateWordsForSentence(nextSentenceIndex));
+          setCurrentSentence(sentences[nextSentenceIndex].sentence);
+
+          // Update word choices with the correct answer at the right position
+          setCurrentWords([
+            { text: sentences[nextSentenceIndex].answers[0], correct: sentences[nextSentenceIndex].answers[0] === sentences[nextSentenceIndex].correct, x: 100, y: 20 },
+            { text: sentences[nextSentenceIndex].answers[1], correct: sentences[nextSentenceIndex].answers[1] === sentences[nextSentenceIndex].correct, x: 100, y: 70 },
+          ]);
         } else {
           alert("Game Over! You hit the wrong word.");
           window.location.reload();
         }
       }
     });
-  }, [currentWords, parrotY, currentSentenceIndex]);
-
-  // Generate words for the current sentence
-  const generateWordsForSentence = (index) => {
-    const sentence = sentences[index];
-    return [
-      { text: sentence.correctWord, correct: true, x: 100, y: 20 },
-      { text: "incorrect", correct: false, x: 100, y: 70 },
-    ];
-  };
+  }, [currentWords, parrotY, currentSentence]);
 
   return (
     <div style={styles.gameContainer}>
-      <h2 style={styles.sentence}>{sentences[currentSentenceIndex].sentence}</h2>
+      <h2 style={styles.sentence}>{currentSentence}</h2>
       <p style={styles.score}>Score: {score}</p>
 
       {/* Surfboard */}
@@ -145,3 +156,4 @@ const styles = {
 };
 
 export default Game;
+
