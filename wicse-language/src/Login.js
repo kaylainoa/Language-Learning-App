@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import axios from 'axios'
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -8,9 +9,32 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    axios.post('http://localhost:3000/login', { email, password, rememberMe })
+    .then((response) => {
+      console.log("Login successful:", response.data);
+      alert("Login successful!");
+    })
+    .catch((error) => {
+      if (error.response) {
+        console.error("Error response:", error.response.data);
+        alert(`Error: ${error.response.data.message || "Login failed"}`);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+        alert("No response from server. Please try again later.");
+      } else {
+        console.error("Error message:", error.message);
+        alert("An unexpected error occurred. Please try again.");
+      }
+    });
+   /* axios.post('http://localhost:3000/login', {email, password, rememberMe})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+
     console.log("Email:", email);
     console.log("Password:", password);
     console.log("Remember me:", rememberMe);
+    */
   };
 
   return (
