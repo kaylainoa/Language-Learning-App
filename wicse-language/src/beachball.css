@@ -6,17 +6,17 @@ html {
 
 
 .background {
-    position: absolute; /* Ensures it stays fixed */
+    position: absolute; 
     top: 0;
     left: 0;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw; 
+    height: 100vh; 
     background-image: url('./Assets/image5.png');
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents tiling */
-    overflow: hidden; /* Hides overflow content */
-    z-index: -1; /* Keeps the background behind other content */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: hidden; 
+    z-index: -1; 
 }
 
 .beachball-container {
@@ -25,18 +25,24 @@ html {
     position: relative;
 }
 
+.message-container {
+    min-height: 30px; 
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    transition: opacity 0.3s ease-in-out; 
+  }
+
   
 .overlay-text {
     position: absolute;
-  top: 10%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
   font-size: 20;
   font-family: "Fuzzy Bubbles", sans-serif;
   text-align: center;
-  /* background: rgba(0, 0, 0, 0.5); */
   padding: 10px;
-  /* border-radius: 10px; */
-  z-index: 10; /* Ensures text appears on top */
+  z-index: 10; 
 }
