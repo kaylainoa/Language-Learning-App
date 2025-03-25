@@ -12,7 +12,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import Volcanogame from './volcanogame';
-import GameBar from './Components/GameBar';
+import NavBar from './Components/NavBar';
 import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Coconut';
@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <GameBar />
+        <NavBar />
         <Routes>
           {/* nav bar links */}
           <Route path="/" element={<Home />} />
