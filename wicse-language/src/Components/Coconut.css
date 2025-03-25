@@ -28,6 +28,7 @@
     padding: 0.2vh 5vw;
     border-radius: 1vh;
     margin-top: 3vh;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
   }
   
   /* Header styling */
@@ -56,3 +57,50 @@ h2 {
   font-weight: bold;
   font-size: clamp(14px, 2.5vw, 24px); /* Responsive font size for word text */
 }
+
+/* Typed letters box styling */
+.typed-letters-box {
+    position: absolute; /* Position it at the bottom of the screen */
+    bottom: clamp(10px, 2vh, 20px); /* Responsive spacing from bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    width: clamp(200px, 90%, 600px); /* Responsive width */
+    height: clamp(50px, 10vh, 100px); /* Responsive height */
+    background-color:  rgba(182, 129, 29, 0.5); /* Semi-transparent white background */
+    border-radius: clamp(10px, 1vw, 20px); /* Rounded corners */
+    display: flex;
+    justify-content: center; /* Center letters horizontally */
+    align-items: center; /* Center letters vertically */
+    padding: clamp(5px, 1vh, 10px); /* Inner padding for spacing */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  }
+
+.typed-letter {
+    font-family: 'Pacifico', sans-serif; /* Match the tropical theme font */
+    font-size: clamp(16px, 3vw, 32px); /* Responsive font size for letters */
+    color: #58340c; /* Dark brown text color to match theme */
+    margin: clamp(2px, 0.5vw, 5px); /* Spacing between letters */
+  }
+/* Individual letter slot styling */
+.letter-slot {
+    position: relative;
+    width: clamp(30px, 8vw, 60px); /* Responsive slot width */
+    height: clamp(5px, 1vh, 10px); /* Bar height for decoration */
+}
+
+.letter-slot::before {
+    content: ""; /* Decorative bar below each slot */
+    position: absolute;
+    bottom: -5px; /* Position bar slightly below the slot */
+    left: 0;
+    width: 100%;
+    height: clamp(3px, .5vh, .8vh); /* Bar thickness */
+    background-color: #58340c; /* Dark brown color for bar */
+}
+
+/* Add spacing between letter slots */
+.letter-slot:not(:last-child) {
+    margin-right: clamp(10px, 2vw, 20px); /* Add space between slots */
+  }
+  
+  
