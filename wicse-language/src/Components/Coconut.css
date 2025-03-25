@@ -1,0 +1,58 @@
+.coconut-background {
+  position: relative; /* Establish a containing block for the pseudo-element */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.coconut-background::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position it relative to .coconut-background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../Assets/coconut-game-background.png') no-repeat center;
+    background-size: cover;
+    /*background-attachment: fixed;*/
+    opacity: 0.75; /* Apply opacity only to the background image */
+    z-index: -1; /* Ensure it stays behind the content */
+  }
+
+/* Question container styling */
+.question-container {
+    text-align: center;
+    background-color: rgba(182, 129, 29, 0.5); /* Semi-transparent background */
+    padding: 0.2vh 5vw;
+    border-radius: 1vh;
+    margin-top: 3vh;
+  }
+  
+  /* Header styling */
+h2 {
+    font-family: 'Pacifico', sans-serif;
+    color: #58340c; /* Match the tropical theme with a brown color */
+    font-size: clamp(16px, 3vw, 28px); /* Responsive font size */
+    text-align: center; /* Center align for consistency */
+  }
+  
+.question {
+    font-size: clamp(14px, 2.5vw, 24px); /* Responsive font size for question text */
+    font-weight: bold;
+  }
+
+.word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: clamp(10px, 2vh, 20px); /* Adds spacing between question and word*/
+}
+
+.word {
+  font-family: 'Pacifico', sans-serif; /* Match header font style */
+  color: #58340c;
+  font-weight: bold;
+  font-size: clamp(14px, 2.5vw, 24px); /* Responsive font size for word text */
+}
