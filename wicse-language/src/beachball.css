@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Original+Surfer&family=Pixelify+Sans:wght@400..700&display=swap');
+
+html {
+    overflow: hidden;
+}
+
+
+.background {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-image: url('./Assets/image5.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: hidden; 
+    z-index: -1; 
+}
+
+.beachball-container {
+    overflow: hidden;
+    object-fit: cover;
+    position: relative;
+}
+
+.message-container {
+    min-height: 30px; 
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    transition: opacity 0.3s ease-in-out; 
+  }
+
+  
+.overlay-text {
+    position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  text-align: center;
+  padding: 10px;
+  z-index: 10; 
+}
