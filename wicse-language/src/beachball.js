@@ -14,7 +14,7 @@ function Beachball() {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = 540; 
 
     // Load images
     const beachball = new Image();
@@ -24,7 +24,7 @@ function Beachball() {
 
     const questions = [
       {
-        question : "What is the yo form of 'hablar' in present tense?",
+        question: "What is the yo form of 'hablar' in present tense?",
         correct: "Hablo",
         answers: ["Habla", "Hablo", "Hablas"]
       },
@@ -82,7 +82,6 @@ function Beachball() {
         this.size = 150;
         this.speedY = 7.7;
         this.speedX = (Math.random() - 0.5) * 8;
-        // Use the provided question data and answer.
         this.question = questionData.question;
         this.answers = questionData.answers;
         this.correctAnswer = questionData.correct;
@@ -92,8 +91,7 @@ function Beachball() {
       update() {
         this.y -= this.speedY;
         this.x += this.speedX;
-        // (Optional) you can remove or adjust gravity if needed:
-        this.speedY -= 0.05;
+        this.speedY -= 0.05; // Gravity effect
         if (this.x + this.size > canvas.width || this.x - this.size < 0) {
           this.speedX *= -1;
         }
@@ -112,9 +110,7 @@ function Beachball() {
       }
     }
 
-    // This function spawns a new set of balls with a new question.
     function spawnBalls() {
-      // Pick a random question and store it in our ref.
       const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
       currentQuestionDataRef.current = randomQuestion;
       const shuffledAnswers = [...randomQuestion.answers].sort(() => Math.random() - 0.5);
@@ -127,7 +123,6 @@ function Beachball() {
       setMessage("");
     }
 
-    // This function respawns the same balls (same question) if none were clicked.
     function reSpawnBalls() {
       if (currentQuestionDataRef.current) {
         const qData = currentQuestionDataRef.current;
@@ -140,12 +135,10 @@ function Beachball() {
         setCurrentQuestion(qData.question);
         setMessage("");
       } else {
-        // If for some reason we don't have a current question, spawn new ones.
         spawnBalls();
       }
     }
 
-    // Click handler: if the user clicks on a ball, check if it's the right one.
     function handleCanvasClick(event) {
       const rect = canvas.getBoundingClientRect();
       const clickX = event.clientX - rect.left;
@@ -166,7 +159,6 @@ function Beachball() {
       if (hitBall) {
         if (hitBall.currentAnswer === hitBall.correctAnswer) {
           setMessage("Correct!");
-          // After a delay, spawn a new question.
           setTimeout(spawnBalls, 750);
         } else {
           setMessage("Wrong! Try again.");
@@ -185,14 +177,10 @@ function Beachball() {
         ball.draw();
       });
 
-      // If the balls are off the screen (i.e. they have moved up or down completely),
-      // re-spawn the same set if none were clicked.
-      // In this example, we check if all balls have fallen off the bottom.
       if (
         ballArrayRef.current.length > 0 &&
         ballArrayRef.current.every((ball) => ball.y > canvas.height)
       ) {
-        // Re-spawn the same set after 1 second.
         ballArrayRef.current = [];
         setTimeout(reSpawnBalls, 1000);
       }

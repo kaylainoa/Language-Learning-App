@@ -6,12 +6,9 @@ import Ocean from './Assets/water.png';
 function Coral() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
-  const totalQuestions = 8; // Adjust based on your questions array
+  const totalQuestions = 8;
 
-  // Fish position (0% means left, 100% means right)
   const fishPosition = (questionIndex / totalQuestions) * 100; 
-
-  // Number of coral images (reduces as fish moves right)
   const coralCount = totalQuestions - questionIndex; 
 
   const questions = [
@@ -36,7 +33,19 @@ function Coral() {
 
   return (
     <div 
-      style={{ position: 'relative', width: '100vw', height: '100vh', backgroundImage: `url(${require('./Assets/water.png')})`, backgroundSize: 'cover', backgroundPosition: 'center', overflow: 'hidden' }}>
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100%', 
+        backgroundImage: `url(${Ocean})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        overflow: 'hidden',
+        margin: 0,
+        padding: 0,
+      }}>
       {/* Coral Images - Start on Right Side and Decrease */}
       {Array.from({ length: coralCount }).map((_, index) => (
         <img 
@@ -45,9 +54,10 @@ function Coral() {
           alt="Coral reef"
           style={{ 
             position: 'absolute', 
-            bottom: '-50px', 
-            right: `${index * 10}%`, // Spread corals evenly
-            width: '350px', 
+            bottom: '0', 
+            right: `${index * 10}%`, 
+            width: '20vw', 
+            maxWidth: '350px', 
             height: 'auto',
           }} 
         />
@@ -61,24 +71,31 @@ function Coral() {
           style={{ 
             position: 'absolute', 
             bottom: '15%', 
-            left: `${fishPosition - 25}%`, // Moves based on question progress
-            width: '350px', 
+            left: `${fishPosition - 25}%`, 
+            width: '20vw', 
+            maxWidth: '350px', 
             height: 'auto', 
             transition: 'left 0.5s ease-in-out',
           }} 
         />
       )}
+
       {/* Winning Message when all questions are answered */}
       {questionIndex >= totalQuestions ? (
         <div 
           style={{ 
             position: 'absolute', 
-            top: '40%', 
+            top: '50%', 
             left: '50%', 
             transform: 'translate(-50%, -50%)', 
-            fontSize: '2rem', 
+            fontSize: '2vw', 
+            minFontSize: '16px',
+            maxFontSize: '32px',
             color: '#ff4500', 
             textAlign: 'center',
+            padding: '20px',
+            backgroundColor: 'rgba(255,255,255,0.7)',
+            borderRadius: '10px',
           }}
         >
           Congratulations! You helped the fish get through the coral!
@@ -89,12 +106,20 @@ function Coral() {
           <div 
             style={{ 
               position: 'absolute', 
-              top: '10%', left: '50%', 
+              top: '10%', 
+              left: '50%', 
               transform: 'translateX(-50%)', 
-              textAlign: 'center' 
+              textAlign: 'center',
+              width: '90%',
+              maxWidth: '600px',
             }}
           >
-            <p style={{ fontSize: '1.5rem', fontFamily: 'YourFontName, sans-serif' }}>
+            <p style={{ 
+              fontSize: '1.5vw', 
+              minFontSize: '14px',
+              maxFontSize: '24px',
+              marginBottom: '20px',
+            }}>
               {questions[questionIndex]?.question}
             </p>
             <input
@@ -102,11 +127,23 @@ function Coral() {
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
               placeholder="Type your answer here"
-              style={{ padding: '10px', fontSize: '1rem' }}
+              style={{ 
+                padding: '10px', 
+                fontSize: '1vw',
+                minFontSize: '12px',
+                maxFontSize: '18px',
+                width: '60%',
+                marginRight: '10px',
+              }}
             />
             <button 
               onClick={handleAnswerSubmit} 
-              style={{ marginLeft: '10px', padding: '10px', fontSize: '1rem' }}
+              style={{ 
+                padding: '10px', 
+                fontSize: '1vw',
+                minFontSize: '12px',
+                maxFontSize: '18px',
+              }}
             >
               Submit Answer
             </button>
