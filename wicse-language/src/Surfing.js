@@ -126,13 +126,22 @@ const styles = {
   gameContainer: {
     position: "relative",
     width: "100%",
-    height: "600px",
+    height: "calc(100vh - 70px)", // Subtract navbar height
     background: `url(${bgImage}) lightgray 50% / cover no-repeat`,
     overflow: "hidden",
     textAlign: "center",
   },
-  sentence: { fontSize: "24px", fontWeight: "bold" },
-  score: { fontSize: "20px", marginBottom: "10px" },
+  sentence: { 
+    fontSize: "24px", 
+    fontWeight: "bold", 
+    color: "black", 
+    marginTop: "10px",
+  },
+  score: { 
+    fontSize: "20px", 
+    marginBottom: "10px", 
+    color: "black", 
+  },
   surfboard: {
     position: "absolute",
     left: "50px",
