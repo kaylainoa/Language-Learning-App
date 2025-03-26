@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sora', sans-serif;
+}
+
+.profile-page {
+  background: linear-gradient(to bottom, #f5e6d3, #b8e0d8, #46C7AD);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: #36635a;
+  text-align: center;
+  overflow-y: auto;
+  padding-top: 50px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.profile-page::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, rgba(70, 199, 173, 0.8) 0%, rgba(70, 199, 173, 0.3) 50%, transparent 100%);
+  z-index: 0;
+}
+
+/* Content Container */
+.header, .profile-container, .achievements-section, .stats-section, .button-container {
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.header {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #36635a;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #36635a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* Profile Container */
+.profile-container {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 2px dashed #F7C22F;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Profile Image */
+.profile-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #46C7AD, #36635a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  animation: float 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.streak-badge {
+  background-color: #F7C22F;
+  color: #36635a;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Info */
+.profile-info {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.info-group {
+  margin-bottom: 1.5rem;
+}
+
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.profile-email {
+  color: #46C7AD;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.join-date {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Language Selection */
+.language-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.language-select {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  border: 2px solid #46C7AD;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #36635a;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.language-select:focus {
+  border-color: #F7C22F;
+  box-shadow: 0 0 0 3px rgba(247, 194, 47, 0.3);
+}
+
+/* Progress Section */
+.progress-section {
+  margin-top: 1rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-label {
+  font-weight: 600;
+}
+
+.level-info {
+  color: #FF9BBC;
+  font-weight: 700;
+}
+
+.progress-bar {
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 9999px;
+  overflow: hidden;
+  border: 2px solid rgba(70, 199, 173, 0.7);
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, #46C7AD, #36635a);
+  border-radius: 9999px;
+  transition: width 1s ease-out;
+  position: relative;
+}
+
+.progress-bar-fill::before,
+.progress-bar-fill::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: bubble 3s ease-in-out infinite;
+}
+
+.progress-bar-fill::before {
+  width: 15px;
+  height: 15px;
+  top: -5px;
+  left: 30%;
+}
+
+.progress-bar-fill::after {
+  width: 10px;
+  height: 10px;
+  top: 10px;
+  left: 60%;
+  animation-delay: 1.5s;
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.progress-message {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #36635a;
+}
+
+/* Achievements Section */
+.achievements-section {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.achievements-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.achievement-card {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+
+.achievement-card.earned {
+  border-color: #F7C22F;
+  background-color: rgba(247, 194, 47, 0.2);    
+}
