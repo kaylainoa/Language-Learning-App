@@ -1,5 +1,5 @@
 .coconut-background {
-  position: relative; /* Establish a containing block for the pseudo-element */
+  position: relative; 
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,8 +8,8 @@
 }
 
 .coconut-background::before {
-    content: ""; /* Required for pseudo-elements */
-    position: absolute; /* Position it relative to .coconut-background */
+    content: ""; 
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
@@ -17,30 +17,30 @@
     background: url('../Assets/coconut-game-background.png') no-repeat center;
     background-size: cover;
     /*background-attachment: fixed;*/
-    opacity: 0.75; /* Apply opacity only to the background image */
-    z-index: -1; /* Ensure it stays behind the content */
+    opacity: 0.75; 
+    z-index: -1; 
   }
 
 /* Question container styling */
 .question-container {
     text-align: center;
-    background-color: rgba(182, 129, 29, 0.5); /* Semi-transparent background */
+    background-color: rgba(182, 129, 29, 0.5); 
     padding: 0.2vh 5vw;
     border-radius: 1vh;
     margin-top: 3vh;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
   }
   
   /* Header styling */
 h2 {
     font-family: 'Pacifico', sans-serif;
-    color: #58340c; /* Match the tropical theme with a brown color */
-    font-size: clamp(16px, 3vw, 28px); /* Responsive font size */
-    text-align: center; /* Center align for consistency */
+    color: #58340c; 
+    font-size: clamp(16px, 3vw, 28px); 
+    text-align: center; 
   }
   
 .question {
-    font-size: clamp(14px, 2.5vw, 24px); /* Responsive font size for question text */
+    font-size: clamp(14px, 2.5vw, 24px); 
     font-weight: bold;
   }
 
@@ -48,59 +48,130 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: clamp(10px, 2vh, 20px); /* Adds spacing between question and word*/
+    margin-top: clamp(10px, 2vh, 20px); 
 }
 
 .word {
-  font-family: 'Pacifico', sans-serif; /* Match header font style */
+  font-family: 'Pacifico', sans-serif; 
   color: #58340c;
   font-weight: bold;
-  font-size: clamp(14px, 2.5vw, 24px); /* Responsive font size for word text */
+  font-size: clamp(14px, 2.5vw, 24px); 
 }
 
 /* Typed letters box styling */
 .typed-letters-box {
-    position: absolute; /* Position it at the bottom of the screen */
-    bottom: clamp(10px, 2vh, 20px); /* Responsive spacing from bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    width: clamp(200px, 90%, 600px); /* Responsive width */
-    height: clamp(50px, 10vh, 100px); /* Responsive height */
-    background-color:  rgba(182, 129, 29, 0.5); /* Semi-transparent white background */
-    border-radius: clamp(10px, 1vw, 20px); /* Rounded corners */
+    position: absolute; 
+    bottom: clamp(10px, 2vh, 20px); 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: clamp(200px, 90%, 600px); 
+    height: clamp(50px, 10vh, 100px); 
+    background-color:  rgba(182, 129, 29, 0.5); 
+    border-radius: clamp(10px, 1vw, 20px); 
     display: flex;
-    justify-content: center; /* Center letters horizontally */
-    align-items: center; /* Center letters vertically */
-    padding: clamp(5px, 1vh, 10px); /* Inner padding for spacing */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    justify-content: center; 
+    align-items: center; 
+    padding: clamp(5px, 1vh, 10px); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
   }
 
 .typed-letter {
-    font-family: 'Pacifico', sans-serif; /* Match the tropical theme font */
-    font-size: clamp(16px, 3vw, 32px); /* Responsive font size for letters */
-    color: #58340c; /* Dark brown text color to match theme */
-    margin: clamp(2px, 0.5vw, 5px); /* Spacing between letters */
+    position: absolute; 
+    top: -200%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  
+    font-family: 'Pacifico', sans-serif; 
+    font-size: clamp(16px, 3vw, 32px); 
+    color: #58340c; 
   }
+
 /* Individual letter slot styling */
 .letter-slot {
     position: relative;
-    width: clamp(30px, 8vw, 60px); /* Responsive slot width */
-    height: clamp(5px, 1vh, 10px); /* Bar height for decoration */
+    width: clamp(30px, 8vw, 60px); 
+    height: clamp(5px, 1vh, 10px); 
 }
 
 .letter-slot::before {
-    content: ""; /* Decorative bar below each slot */
+    content: "";
     position: absolute;
-    bottom: -5px; /* Position bar slightly below the slot */
+    bottom: -5px; 
     left: 0;
     width: 100%;
-    height: clamp(3px, .5vh, .8vh); /* Bar thickness */
-    background-color: #58340c; /* Dark brown color for bar */
+    height: clamp(3px, .5vh, .8vh); 
+    background-color: #58340c; 
 }
 
-/* Add spacing between letter slots */
 .letter-slot:not(:last-child) {
-    margin-right: clamp(10px, 2vw, 20px); /* Add space between slots */
+    margin-right: clamp(10px, 2vw, 20px);
+}
+
+.letter-slot.glow-red {
+  animation: glow-red 1s ease-in-out;
+}
+
+@keyframes glow-red {
+  0% {
+    box-shadow: 0 0 5px red;
   }
-  
-  
+  50% {
+    box-shadow: 0 0 20px red;
+  }
+  100% {
+    box-shadow: 0 0 5px red;
+  }
+}
+
+.coconut-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+    height: clamp(80vh, 30%, 90vh);
+}
+
+.coconut{
+    background-image: url('../Assets/coconut.png');
+    width: clamp(50px, 5vw, 100px); 
+    height: clamp(50px, 6vw, 100px); 
+    background-size: cover; 
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coconut-letter{
+    font-family: 'Pacifico', sans-serif; 
+    font-size: clamp(16px, 2.5vw, 32px); 
+    color: #f3e6d4;
+}
+
+.score-counter{
+  position: absolute;
+  top: clamp(10px, 2vh, 20px); 
+  right: clamp(10px, 2vw, 20px); 
+  font-size: clamp(16px, 2vw, 24px); 
+  font-family: 'Pacifico', sans-serif;
+  background-color: rgba(182,129,29,0.8);
+  padding: clamp(5px, 1vh, 10px); 
+  border-radius: clamp(5px, 1vw, 15px); 
+}
+
+.win-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(24px, 4vw, 48px);
+  font-weight: bold;
+  color: #58340c;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: clamp(10px, 2vh, 20px);
+  border-radius: clamp(10px, 1vw, 20px);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
