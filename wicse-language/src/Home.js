@@ -15,6 +15,11 @@ function Home() {
     
     // Map special levels to their corresponding pages
     switch(levelNumber) {
+      case 2: //for testing winscreen
+        isLinked = true;
+        path = '/winscreen';
+        pageName = 'Level 2';
+        break;
       case 3:
         isLinked = true;
         path = '/beachball';
