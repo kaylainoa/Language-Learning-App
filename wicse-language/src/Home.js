@@ -107,7 +107,7 @@ function Home() {
         </div>
         
         <div className="button-container">
-          <Link to="/beachball" className="primary-button">Continue Journey</Link>
+          <Link to="/comingSoon" className="primary-button">Continue Journey</Link>
         </div>
       </div>
     </div>

@@ -1,85 +1,155 @@
 import React, { useState } from 'react';
-// Fish moves through coral not hitting it each time you get a question right
-// Fish doesn't move if question wrong
+import Fish from './Assets/FishImage.PNG';
+import CoralPic from './Assets/coralll.png';
+import Ocean from './Assets/water.png';
+
 function Coral() {
-  // Will keep track of the current question
   const [questionIndex, setQuestionIndex] = useState(0);
-
-  // Keeps track of user input when answering questions
   const [userAnswer, setUserAnswer] = useState('');
+  const totalQuestions = 8;
 
-  // Array of questions to loop through during mini game (with answers expected from user)
+  const fishPosition = (questionIndex / totalQuestions) * 100; 
+  const coralCount = totalQuestions - questionIndex; 
+
   const questions = [
-    {
-      question: 'Complete the sentence with the correct conjugation of the verb "hablar" in the present tense: Yo ________ español todos los días.',
-      answer: 'hablo',
-    },
-    {
-      question: 'Fill in the blank with the correct form of the verb "tener" (hint: irregular) in the preterite tense: Ellos ________ una fiesta el fin de semana pasado.',
-      answer: 'tuvieron',
-    },
-    {
-      question: 'Fill in the blank with the correct form of the adjective "feliz" to match the subject in the sentence: Mi madre está ________ porque ganó un premio.',
-      answer: 'feliz',
-    },
+    { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
+    { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
+    { question: 'Mi madre está (happy)________ porque ganó un premio.', answer: 'feliz' },
+    { question: '"Rojo" means ________. (color)', answer: 'red' },
+    { question: '"Manzana" is the Spanish word for ________. (fruit)', answer: 'apple' },
+    { question: 'The Spanish word for "sun" is _____', answer: 'sol' },
+    { question: 'The Spanish word for "book" is _____', answer: 'libro' },
+    { question: 'The Spanish word for "dog" is _____', answer: 'perro' },
   ];
 
-  // Handles answer submission (will determine if we move to next question or not)
   const handleAnswerSubmit = () => {
     if (userAnswer.trim().toLowerCase() === questions[questionIndex].answer.toLowerCase()) {
-      // Index is incremented if question is right (moves to the next)
-      setQuestionIndex((prevIndex) => (prevIndex + 1) % questions.length); 
-      setUserAnswer(''); 
+      setQuestionIndex((prevIndex) => Math.min(prevIndex + 1, totalQuestions));
+      setUserAnswer('');
     } else {
       alert('Incorrect answer, try again!');
     }
   };
 
-  // Function to handle going to the next question
-  const handleNextQuestion = () => {
-    setQuestionIndex((prevIndex) => (prevIndex + 1) % questions.length); 
-  };
-
-  const styles = {
-    container: {
-      padding: '20px',
-    },
-    textBoxContainer: {
-
-    },
-    textBox: {
-      padding: '8px',
-      border: 'none', 
-    },
-    button: {
-      padding: '8px 16px',
-      backgroundColor: 'initial', 
-    },
-  };
-
   return (
-    // Container with styles applied
-    <div style={styles.container}>
-      <div style={styles.textBoxContainer}>
-        {/* Display the current question */}
-        <p style={styles.textBox}>
-          {questions[questionIndex].question}
-        </p>
-
-        {/* User input for answering the question */}
-        <input
-          type="text"
-          value={userAnswer}
-          onChange={(e) => setUserAnswer(e.target.value)}
-          style={styles.textBox}
-          placeholder="Type your answer here"
+    <div 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100%', 
+        backgroundImage: `url(${Ocean})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        overflow: 'hidden',
+        margin: 0,
+        padding: 0,
+      }}>
+      {/* Coral Images - Start on Right Side and Decrease */}
+      {Array.from({ length: coralCount }).map((_, index) => (
+        <img 
+          key={index}
+          src={CoralPic}
+          alt="Coral reef"
+          style={{ 
+            position: 'absolute', 
+            bottom: '0', 
+            right: `${index * 10}%`, 
+            width: '20vw', 
+            maxWidth: '350px', 
+            height: 'auto',
+          }} 
         />
+      ))}
 
-        {/* Button that submits user's answer and moves to next question */}
-        <button onClick={handleAnswerSubmit} style={styles.button}>
-          Submit Answer
-        </button>
-      </div>
+      {/* Fish Image - Moves Right as Questions Are Answered */}
+      {questionIndex < totalQuestions && (
+        <img 
+          src={Fish} 
+          alt="Fish swimming" 
+          style={{ 
+            position: 'absolute', 
+            bottom: '15%', 
+            left: `${fishPosition - 25}%`, 
+            width: '20vw', 
+            maxWidth: '350px', 
+            height: 'auto', 
+            transition: 'left 0.5s ease-in-out',
+          }} 
+        />
+      )}
+
+      {/* Winning Message when all questions are answered */}
+      {questionIndex >= totalQuestions ? (
+        <div 
+          style={{ 
+            position: 'absolute', 
+            top: '50%', 
+            left: '50%', 
+            transform: 'translate(-50%, -50%)', 
+            fontSize: '2vw', 
+            minFontSize: '16px',
+            maxFontSize: '32px',
+            color: '#ff4500', 
+            textAlign: 'center',
+            padding: '20px',
+            backgroundColor: 'rgba(255,255,255,0.7)',
+            borderRadius: '10px',
+          }}
+        >
+          Congratulations! You helped the fish get through the coral!
+        </div>
+      ) : (
+        <>
+          {/* Question and Answer Box */}
+          <div 
+            style={{ 
+              position: 'absolute', 
+              top: '10%', 
+              left: '50%', 
+              transform: 'translateX(-50%)', 
+              textAlign: 'center',
+              width: '90%',
+              maxWidth: '600px',
+            }}
+          >
+            <p style={{ 
+              fontSize: '1.5vw', 
+              minFontSize: '14px',
+              maxFontSize: '24px',
+              marginBottom: '20px',
+            }}>
+              {questions[questionIndex]?.question}
+            </p>
+            <input
+              type="text"
+              value={userAnswer}
+              onChange={(e) => setUserAnswer(e.target.value)}
+              placeholder="Type your answer here"
+              style={{ 
+                padding: '10px', 
+                fontSize: '1vw',
+                minFontSize: '12px',
+                maxFontSize: '18px',
+                width: '60%',
+                marginRight: '10px',
+              }}
+            />
+            <button 
+              onClick={handleAnswerSubmit} 
+              style={{ 
+                padding: '10px', 
+                fontSize: '1vw',
+                minFontSize: '12px',
+                maxFontSize: '18px',
+              }}
+            >
+              Submit Answer
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
