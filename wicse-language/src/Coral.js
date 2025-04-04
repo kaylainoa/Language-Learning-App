@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Fish from './Assets/FishImage.PNG';
 import CoralPic from './Assets/coralll.png';
 import Ocean from './Assets/water.png';
+import questions from "./data.json";
 
 function Coral() {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -11,16 +12,17 @@ function Coral() {
   const fishPosition = (questionIndex / totalQuestions) * 100; 
   const coralCount = totalQuestions - questionIndex; 
 
-  const questions = [
-    { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
-    { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
-    { question: 'Mi madre está (happy)________ porque ganó un premio.', answer: 'feliz' },
-    { question: '"Rojo" means ________. (color)', answer: 'red' },
-    { question: '"Manzana" is the Spanish word for ________. (fruit)', answer: 'apple' },
-    { question: 'The Spanish word for "sun" is _____', answer: 'sol' },
-    { question: 'The Spanish word for "book" is _____', answer: 'libro' },
-    { question: 'The Spanish word for "dog" is _____', answer: 'perro' },
-  ];
+  const questions = questions["coral-questions"]
+  // [
+  //   { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
+  //   { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
+  //   { question: 'Mi madre está (happy)________ porque ganó un premio.', answer: 'feliz' },
+  //   { question: '"Rojo" means ________. (color)', answer: 'red' },
+  //   { question: '"Manzana" is the Spanish word for ________. (fruit)', answer: 'apple' },
+  //   { question: 'The Spanish word for "sun" is _____', answer: 'sol' },
+  //   { question: 'The Spanish word for "book" is _____', answer: 'libro' },
+  //   { question: 'The Spanish word for "dog" is _____', answer: 'perro' },
+  // ];
 
   const handleAnswerSubmit = () => {
     if (userAnswer.trim().toLowerCase() === questions[questionIndex].answer.toLowerCase()) {

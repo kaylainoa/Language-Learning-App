@@ -1,0 +1,76 @@
+{
+  "beachball-questions": [
+    {
+      "question": "What is the yo form of 'hablar' in present tense?",
+      "correct": "Hablo",
+      "answers": ["Habla", "Hablo", "Hablas"]
+    },
+    {
+      "question": "What is the tú form of 'comer' in present tense?",
+      "correct": "Comes",
+      "answers": ["Como", "Comes", "Comemos"]
+    },
+    {
+      "question": "What is the él/ella form of 'vivir' in present tense?",
+      "correct": "Vive",
+      "answers": ["Vivo", "Vives", "Vive"]
+    },
+    {
+      "question": "What is the nosotros form of 'ser' in past tense?",
+      "correct": "Fuimos",
+      "answers": ["Fuimos", "Somos", "Eran"]
+    },
+    {
+      "question": "What is the yo form of 'tener' in future tense?",
+      "correct": "Tendré",
+      "answers": ["Tendrá", "Tendré", "Tienes"]
+    },
+    {
+      "question": "What is the yo form of 'escribir' in present tense?",
+      "correct": "Escribo",
+      "answers": ["Escribe", "Escribimos", "Escribo"]    
+    },
+    {
+      "question": "What is the tú form of 'hacer' in present tense?",
+      "correct": "Haces",
+      "answers": ["Haces", "Hago", "Hace"]
+    },
+    {
+      "question": "What is the nosotros form of 'estar' in present tense?",
+      "correct": "Estamos",
+      "answers": ["Estás", "Estamos", "Están"]
+    },
+    {
+      "question": "What is the ellos/ellas form of 'beber' in present tense?",
+      "correct": "Beben",
+      "answers": ["Bebes", "Beben", "Bebemos"]
+    },
+    {
+      "question": "What is the yo form of 'poder' in present tense?",
+      "correct": "Puedo",
+      "answers": ["Puedo", "Puedes", "Pueda"]
+    }
+  ],
+  "surfing-questions": [
+    { "sentence": "El ___ es grande.", "correct": "perro", "answers": ["perro", "gata"] },
+    { "sentence": "El ___ está jugando.", "correct": "pajaro", "answers": ["hombre", "pajaro"] },
+    { "sentence": "La ___ corre rápido.", "correct": "gata", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ está durmiendo.", "correct": "pajaro", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ es pequeño.", "correct": "hombre", "answers": ["gata", "hombre"] },
+    { "sentence": "La ___ es rápida.", "correct": "gata", "answers": ["hombre", "gata"] },
+    { "sentence": "La ___ es pequeña.", "correct": "gata", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ vuela.", "correct": "pajaro", "answers": ["pajaro", "gato"] },
+    { "sentence": "El ___ corre.", "correct": "gato", "answers": ["pajaro", "gato"] },
+    { "sentence": "La ___ está comiendo.", "correct": "gata", "answers": ["gata", "perro"] }
+  ],
+  "coral-questions" : [
+    { "question": "Yo (speak) ________ español todos los días.", "answer": "hablo" },
+    { "question": "Ellos (have) ________ una fiesta el fin de semana pasado.", "answer": "tuvieron" },
+    { "question": "Mi madre está (happy)________ porque ganó un premio.", "answer": "feliz" },
+    { "question": "'Rojo' means ________. (color)", "answer": "red" },
+    { "question": "'Manzana' is the Spanish word for ________. (fruit)", "answer": "apple" },
+    { "question": "The Spanish word for 'sun' is _____", "answer": "sol" },
+    { "question": "The Spanish word for 'book' is _____", "answer": "libro" },
+    { "question": "The Spanish word for 'dog' is _____", "answer": "perro" }
+  ]
+}
