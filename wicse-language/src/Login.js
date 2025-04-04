@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from 'axios'
 
+//there is error handling in Login func that prints messages, you can take out the prints if you want
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
