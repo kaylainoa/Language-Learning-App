@@ -17,7 +17,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000; //dynamic port or default
 
-const uri = "mongodb+srv://abigailerefah:<password>@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
+const uri = "mongodb+srv://abigailerefah:8491NKQcpKBhEvJn@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 //may have to save remeberMe, maybe a boolean
@@ -51,5 +51,19 @@ app.post('/login', async(req, res) => {//used to create and save users
     res.status(200).json(users); //choosing 200 to indicate that its a success
   }catch (error) {
     res.status(500).json({message: error.message});
+  }
+});
+
+app.get('/login', async (req, res) => { // Check if a user is in the database
+  try {
+    const { user, pass } = req.query; // Use query parameters
+    const login = await User.findOne({ email: user, password: pass });
+    if (login) {
+      res.status(200).json(login);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
