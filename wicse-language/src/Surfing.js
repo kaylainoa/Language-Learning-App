@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import parrotImg from "./Assets/parrotImg.png"; 
 import surfboardImg from "./Assets/surfboard.png"; 
 import bgImage from "./Assets/surfingbg.png"; 
+import questions from "./data.json";
 
 function Game() {
   const [parrotY, setParrotY] = useState(50); // Parrot's vertical position
@@ -12,18 +13,19 @@ function Game() {
     { text: "gata", correct: false, x: 100, y: 70 },
   ]);
 
-  const sentences = [
-    { sentence: "El ___ es grande.", correct: "perro", answers: ["perro", "gata"] },
-    { sentence: "El ___ está jugando.", correct: "pajaro", answers: ["hombre", "pajaro"] },
-    { sentence: "La ___ corre rápido.", correct: "gata", answers: ["pajaro", "gata"] },
-    { sentence: "El ___ está durmiendo.", correct: "pajaro", answers: ["pajaro", "gata"] },
-    { sentence: "El ___ es pequeño.", correct: "hombre", answers: ["gata", "hombre"] },
-    { sentence: "La ___ es rápida.", correct: "gata", answers: ["hombre", "gata"] },
-    { sentence: "La ___ es pequeña.", correct: "gata", answers: ["pajaro", "gata"] },
-    { sentence: "El ___ vuela.", correct: "pajaro", answers: ["pajaro", "gato"] },
-    { sentence: "El ___ corre.", correct: "gato", answers: ["pajaro", "gato"] },
-    { sentence: "La ___ está comiendo.", correct: "gata", answers: ["gata", "perro"] },
-  ];
+  const sentences = questions["surfing-questions"]
+  //[
+  //   { sentence: "El ___ es grande.", correct: "perro", answers: ["perro", "gata"] },
+  //   { sentence: "El ___ está jugando.", correct: "pajaro", answers: ["hombre", "pajaro"] },
+  //   { sentence: "La ___ corre rápido.", correct: "gata", answers: ["pajaro", "gata"] },
+  //   { sentence: "El ___ está durmiendo.", correct: "pajaro", answers: ["pajaro", "gata"] },
+  //   { sentence: "El ___ es pequeño.", correct: "hombre", answers: ["gata", "hombre"] },
+  //   { sentence: "La ___ es rápida.", correct: "gata", answers: ["hombre", "gata"] },
+  //   { sentence: "La ___ es pequeña.", correct: "gata", answers: ["pajaro", "gata"] },
+  //   { sentence: "El ___ vuela.", correct: "pajaro", answers: ["pajaro", "gato"] },
+  //   { sentence: "El ___ corre.", correct: "gato", answers: ["pajaro", "gato"] },
+  //   { sentence: "La ___ está comiendo.", correct: "gata", answers: ["gata", "perro"] },
+  // ];
 
   // The correct answers pattern (alternating top/bottom)
   const answerPositions = [
