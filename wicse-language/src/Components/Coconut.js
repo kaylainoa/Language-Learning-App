@@ -1,106 +1,80 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Coconut.css';
-import './Scoreboard.css';
 import Scoreboard from './Scoreboard';
+import { useNavigate } from 'react-router-dom';
 
-// Function to generate non-overlapping positions
 const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistance) => {
   const positions = [];
-  while (positions.length < numPositions) {
+  let attempts = 0;
+  const maxAttempts = 1000;
+
+  while (positions.length < numPositions && attempts < maxAttempts) {
+    attempts++;
     const x = Math.random() * (xRange[1] - xRange[0]) + xRange[0];
     const y = Math.random() * (yRange[1] - yRange[0]) + yRange[0];
 
-    // Check if the new position overlaps with any existing position
     const isOverlapping = positions.some(
       ([px, py]) => Math.sqrt((x - px) ** 2 + (y - py) ** 2) < minDistance
     );
 
-    if (!isOverlapping) {
-      positions.push([x, y]);
-    }
+    if (!isOverlapping) positions.push([x, y]);
   }
+
   return positions;
 };
 
 function Coconut() {
   const questions = [
-    { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] }
+    { question: 'Choose the correct spelling for:', word: 'to read', answer: ['L', 'E', 'E', 'R'] },
+    /* { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] },
+    { question: 'Choose the correct spelling for:', word: 'book', answer: ['L', 'I', 'B', 'R', 'O'] },
+    { question: 'Choose the correct spelling for:', word: 'letter', answer: ['C', 'A', 'R', 'T', 'A'] },
+    { question: 'Choose the correct spelling for:', word: 'pencil', answer: ['L', 'Á', 'P', 'I', 'Z'] },
+    { question: 'Choose the correct spelling for:', word: 'pen', answer: ['B', 'O', 'L', 'Í', 'G', 'R', 'A', 'F', 'O'] }*/
   ];
 
-  const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const currentQuestion = questions[currentQuestionIndex];
   const letters = currentQuestion.answer;
   const wordLength = letters.length;
 
   const [typedLetters, setTypedLetters] = useState([]);
-  const [visibleLetters, setVisibleLetters] = useState(
-    letters.map((letter, index) => ({ letter, id: index }))
-  );
+  const [visibleLetters, setVisibleLetters] = useState([]);
   const [score, setScore] = useState(0);
   const [glowRed, setGlowRed] = useState(false);
-  
-  // Option 1: Initialize with default values
-  const [coconutPositions, setCoconutPositions] = useState(
-    Array(letters.length).fill([50, 50]) // Default position in center
-  );
-  
-  const [gameWon, setGameWon] = useState(false); // Track if all questions are answered
-  const [showScoreboard, setShowScoreboard] = useState(false); // Control scoreboard popup visibility
+  const [gameWon, setGameWon] = useState(null);
+  const [coconutPositions, setCoconutPositions] = useState([]);
 
-  // Generate initial non-overlapping positions for coconuts
+  // Initialize positions and letters
   useEffect(() => {
-    setCoconutPositions(
-      generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 10)
-    );
+    const positions = generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 20);
+    setCoconutPositions(positions);
+    setVisibleLetters(letters.map((letter, index) => ({ letter, id: index })));
+    setTypedLetters([]);
+    setGlowRed(false);
   }, [currentQuestionIndex]);
 
-  // Handle Levels button click
-  const handleLevelsClick = () => {
-    navigate('/levels'); // Navigate to levels page
-  };
+  const isCorrectOrder = () => typedLetters.join('') === currentQuestion.answer.join('');
 
-  // Handle letter click
   const handleLetterClick = (id) => {
     const clickedLetter = visibleLetters.find((l) => l.id === id).letter;
     setTypedLetters((prev) => [...prev, clickedLetter]);
     setVisibleLetters((prev) => prev.filter((l) => l.id !== id));
   };
 
-  // Check if typed letters match the correct order
-  const isCorrectOrder = () => {
-    return typedLetters.join('') === currentQuestion.answer.join('');
-  };
-
-  // Reset game state for the next question
-  const resetGame = () => {
-    setTypedLetters([]);
-    setVisibleLetters(letters.map((letter, index) => ({ letter, id: index })));
-    setGlowRed(false);
-    setCoconutPositions(
-      generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 10)
-    );
-  };
-
-  // Handle typing logic and check if game is won
   useEffect(() => {
     if (typedLetters.length === wordLength) {
       if (isCorrectOrder()) {
-        setScore((prevScore) => prevScore + 10); // Increment score by 10
+        setScore((prev) => prev + 10);
         const newIndex = currentQuestionIndex + 1;
         if (newIndex >= questions.length) {
-          setGameWon(true); // End game if all questions are answered
-          setShowScoreboard(true); // Automatically show scoreboard popup
+          setGameWon(true); // Game won
         } else {
-          setCurrentQuestionIndex(newIndex); // Move to next question
-          resetGame(); // Reset for next round
+          setCurrentQuestionIndex(newIndex); // Next question
         }
       } else {
-        setGlowRed(true); // Indicate incorrect answer visually
-        setTimeout(() => {
-          resetGame(); // Reset after incorrect answer
-        }, 1000);
+        setGlowRed(true);
+        setTimeout(() => setGameWon(false), 1000); // Game lost
       }
     }
   }, [typedLetters]);
@@ -109,16 +83,11 @@ function Coconut() {
     <div className="coconut-background">
       <div className="score-counter">Score: {score}</div>
 
-      {/* Render scoreboard popup */}
-      <Scoreboard 
-        isOpen={showScoreboard}
-        onClose={() => setShowScoreboard(false)}
-        score={score}
-        title="YOU WIN!"
-        onLevelsClick={handleLevelsClick}
-      />
+      {/* Render Scoreboard when game is over */}
+      {gameWon !== null && <Scoreboard isWin={gameWon} score={score} />}
 
-      {!gameWon && (
+      {/* Render game elements only if game is ongoing */}
+      {gameWon === null && (
         <>
           <div className="question-container">
             <h2>{currentQuestion.question}</h2>
@@ -129,21 +98,20 @@ function Coconut() {
 
           <div className="coconut-container">
             {visibleLetters.map((letterObject, index) => (
-              <div
-                key={letterObject.id}
-                className="coconut"
-                style={{
-                  position: "absolute",
-                  left: `${coconutPositions[index][0]}%`,
-                  top: `${coconutPositions[index][1]}%`,
-                }}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleLetterClick(letterObject.id);
-                }}
-              >
-                <div className="coconut-letter">{letterObject.letter}</div>
-              </div>
+              coconutPositions[index] && (
+                <div
+                  key={letterObject.id}
+                  className="coconut"
+                  style={{
+                    position: "absolute",
+                    left: `${coconutPositions[index][0]}%`,
+                    top: `${coconutPositions[index][1]}%`,
+                  }}
+                  onClick={() => handleLetterClick(letterObject.id)}
+                >
+                  <div className="coconut-letter">{letterObject.letter}</div>
+                </div>
+              )
             ))}
           </div>
 
