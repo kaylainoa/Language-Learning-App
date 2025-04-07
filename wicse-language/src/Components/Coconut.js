@@ -32,7 +32,11 @@ const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistan
 function Coconut() {
   const questions = [
     { question: 'Choose the correct spelling for:', word: 'to read', answer: ['L', 'E', 'E', 'R'] },
-    { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] }
+    { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] },
+    { question: 'Choose the correct spelling for:', word: 'book', answer: ['L', 'I', 'B', 'R', 'O'] },
+    { question: 'Choose the correct spelling for:', word: 'letter', answer: ['C', 'A', 'R', 'T', 'A'] },
+    { question: 'Choose the correct spelling for:', word: 'pencil', answer: ['L', 'Á', 'P', 'I', 'Z'] },
+    { question: 'Choose the correct spelling for:', word: 'pen', answer: ['B', 'O', 'L', 'Í', 'G', 'R', 'A', 'F', 'O'] }
   ];
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
