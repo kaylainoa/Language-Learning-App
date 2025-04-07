@@ -2,16 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Coconut.css';
 import './Scoreboard.css';
-import Scoreboard from './Scoreboard.js';
+import Scoreboard from './Scoreboard';
+
+// Function to generate non-overlapping positions
+const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistance) => {
+  const positions = [];
+  while (positions.length < numPositions) {
+    const x = Math.random() * (xRange[1] - xRange[0]) + xRange[0];
+    const y = Math.random() * (yRange[1] - yRange[0]) + yRange[0];
+
+    // Check if the new position overlaps with any existing position
+    const isOverlapping = positions.some(
+      ([px, py]) => Math.sqrt((x - px) ** 2 + (y - py) ** 2) < minDistance
+    );
+
+    if (!isOverlapping) {
+      positions.push([x, y]);
+    }
+  }
+  return positions;
+};
 
 function Coconut() {
   const questions = [
-    { question: 'Choose the correct spelling for:', word: 'to read', answer: ['L', 'E', 'E', 'R'] },
-    /* { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] },
-    { question: 'Choose the correct spelling for:', word: 'book', answer: ['L', 'I', 'B', 'R', 'O'] },
-    { question: 'Choose the correct spelling for:', word: 'letter', answer: ['C', 'A', 'R', 'T', 'A'] },
-    { question: 'Choose the correct spelling for:', word: 'pencil', answer: ['L', 'Á', 'P', 'I', 'Z'] },
-    { question: 'Choose the correct spelling for:', word: 'pen', answer: ['B', 'O', 'L', 'Í', 'G', 'R', 'A', 'F', 'O'] }*/
+    { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] }
   ];
 
   const navigate = useNavigate();
@@ -26,16 +40,24 @@ function Coconut() {
   );
   const [score, setScore] = useState(0);
   const [glowRed, setGlowRed] = useState(false);
+  
+  // Option 1: Initialize with default values
   const [coconutPositions, setCoconutPositions] = useState(
-    letters.map(() => ({ x: Math.random() * (90 - 10) + 10, y: Math.random() * (50 - 20) + 20 }))
+    Array(letters.length).fill([50, 50]) // Default position in center
   );
+  
   const [gameWon, setGameWon] = useState(false); // Track if all questions are answered
   const [showScoreboard, setShowScoreboard] = useState(false); // Control scoreboard popup visibility
 
+  // Generate initial non-overlapping positions for coconuts
+  useEffect(() => {
+    setCoconutPositions(
+      generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 10)
+    );
+  }, [currentQuestionIndex]);
+
   // Handle Levels button click
   const handleLevelsClick = () => {
-    console.log('Navigating to Levels...');
-    setShowScoreboard(false); // Close popup
     navigate('/levels'); // Navigate to levels page
   };
 
@@ -57,10 +79,7 @@ function Coconut() {
     setVisibleLetters(letters.map((letter, index) => ({ letter, id: index })));
     setGlowRed(false);
     setCoconutPositions(
-      letters.map(() => ({
-        x: Math.random() * (90 - 10) + 10,
-        y: Math.random() * (50 - 20) + 20,
-      }))
+      generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 10)
     );
   };
 
@@ -86,47 +105,19 @@ function Coconut() {
     }
   }, [typedLetters]);
 
-  // Update visible letters and coconut positions when the question changes
-  useEffect(() => {
-    setVisibleLetters(currentQuestion.answer.map((letter, index) => ({ letter, id: index })));
-    setCoconutPositions(
-      letters.map(() => ({
-        x: Math.random() * (90 - 10) + 10,
-        y: Math.random() * (50 - 20) + 20,
-      }))
-    );
-  }, [currentQuestionIndex]);
-
   return (
     <div className="coconut-background">
       <div className="score-counter">Score: {score}</div>
 
       {/* Render scoreboard popup */}
-      <Scoreboard
+      <Scoreboard 
         isOpen={showScoreboard}
         onClose={() => setShowScoreboard(false)}
         score={score}
         title="YOU WIN!"
         onLevelsClick={handleLevelsClick}
       />
-      {/* Debug button - will always be visible */}
-      <button
-        onClick={() => setShowScoreboard(true)}
-        style={{
-          position: "absolute",
-          bottom: "10px",
-          right: "10px",
-          zIndex: 1000,
-          padding: "8px 16px",
-          borderRadius: "4px",
-          backgroundColor: "#582604",
-          color: "white",
-          border: "none",
-          cursor: "pointer"
-        }}
-      >
-        Show Scoreboard (Debug)
-      </button>
+
       {!gameWon && (
         <>
           <div className="question-container">
@@ -143,8 +134,8 @@ function Coconut() {
                 className="coconut"
                 style={{
                   position: "absolute",
-                  left: `${coconutPositions[index].x}%`,
-                  top: `${coconutPositions[index].y}%`,
+                  left: `${coconutPositions[index][0]}%`,
+                  top: `${coconutPositions[index][1]}%`,
                 }}
                 onClick={(e) => {
                   e.stopPropagation();
