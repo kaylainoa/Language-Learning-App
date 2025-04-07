@@ -34,7 +34,7 @@ canvas {
 .message-container {
     min-height: 30px;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     color: white;
     transition: opacity 0.3s ease-in-out;
 }
