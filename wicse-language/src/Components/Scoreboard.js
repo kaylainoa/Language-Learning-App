@@ -14,12 +14,15 @@ function Scoreboard({ isOpen, onClose, score, title, onLevelsClick }) {
           <div className="points-value">{score}</div>
         </div>
 
-        <button 
-          className="levels-button"
-          onClick={onLevelsClick}
-        >
-          Levels
-        </button>
+        {/* Levels Button Container */}
+        <div className="levels-button-container">
+          <button 
+            className="levels-button"
+            onClick={onLevelsClick}
+          >
+            Levels
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -86,7 +86,7 @@
   }
   
   /* Levels button container */
-  .levels-button-container {
+  /*.levels-button-container {
     position: relative;
     top: 8%;
     left: 14%;
@@ -95,32 +95,26 @@
     justify-content: center;
     align-items: center;
   }
+  */
+  .levels-button-container {
+    position: absolute; /* Use absolute positioning for precise placement */
+    top: 55%; /* Adjust vertical position to place it below the score */
+    left: 60%; /* Center horizontally within the scoreboard popup */
+    transform: translate(-50%, -50%); /* Center the button based on its own width and height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
   .levels-button {
-    position: relative;
-    font-size: calc(2% + 0.8rem);
+    font-size: calc(2% + 0.8rem); /* Adjust font size dynamically */
     font-family: "Fuzzy Bubbles", sans-serif;
-    padding: calc(0.5% + 0.5rem) calc(2% + 1rem);
-    border-radius: calc(0.5% + 0.5rem);
+    padding: calc(0.5% + 0.5rem) calc(2% + 1rem); /* Add padding for better spacing */
+    border-radius: calc(0.5% + 0.5rem); /* Rounded corners for button */
     border: none;
     color: white;
-    background-color: #582604;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-    z-index: 2;
-    transform: translateY(calc(30%)); /* Moves the button down */
-    transform: translateX(calc(5%)); /* Moves the button down */
-  }
-  .levels-button-container::before {
-    content: "";
-    position: absolute;
-    top: -55%; /* Adjust vertical position of the image */
-    left: -45%; /* Adjust horizontal position of the image */
-    width: calc(300%); /* Width of the image */
-    height: calc(300%); /* Height of the image */
-    background-image: url('../Assets/scoreboard-button-1.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 0; /* Ensure it's behind the button but visible */
-   /* margin-top: calc(-10%); /* Move the orange box and text down */
+    background-color: #582604; /* Brown color for button */
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2); /* Subtle shadow for depth */
   }
   
  /* .levels-button-container::before {
