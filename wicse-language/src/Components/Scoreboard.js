@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Scoreboard.css';
 
+
+//TO USE
+  //create a isWin boolean and a score count
+  //pass those in and it will show the correct board and the score
+
+  
 function Scoreboard({ isWin, score }) {
   const [isOpen, setIsOpen] = useState(true); // Control visibility internally
   const navigate = useNavigate();
@@ -36,23 +42,6 @@ function Scoreboard({ isWin, score }) {
             Home
           </button>
         </div>
-
-        {/* Optional close button */}
-        <button 
-          onClick={handleClose}
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            backgroundColor: 'transparent',
-            border: 'none',
-            fontSize: '20px',
-            cursor: 'pointer',
-            color: '#fff'
-          }}
-        >
-          ✖
-        </button>
       </div>
     </div>
   );
