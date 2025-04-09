@@ -23,14 +23,13 @@
 
 /* Question container styling */
 .question-container {
-    text-align: center;
-    background-color: rgba(182, 129, 29, 0.5); 
-    padding: 0.2vh 5vw;
-    border-radius: 1vh;
-    margin-top: 3vh;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+  text-align: center;
+  background-color: rgba(182, 129, 29, 0.5);
+  padding: 0.2vh 5vw;
+  border-radius: 1vh;
+  margin-top: 3vh;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   }
-  
   /* Header styling */
 h2 {
     font-family: 'Pacifico', sans-serif;
@@ -153,14 +152,14 @@ h2 {
 
 .score-counter{
   position: absolute;
-  top: clamp(10px, 2vh, 20px); 
-  right: clamp(10px, 2vw, 20px); 
-  font-size: clamp(16px, 2vw, 24px); 
+  top: clamp(10px, 2vh, 20px);
+  right: clamp(10px, 2vw, 20px);
+  font-size: clamp(16px, 2vw, 24px);
   font-family: 'Pacifico', sans-serif;
   background-color: rgba(182,129,29,0.8);
-  padding: clamp(5px, 1vh, 10px); 
-  border-radius: clamp(5px, 1vw, 15px); 
-}
+  padding: clamp(5px, 1vh, 10px);
+  border-radius: clamp(5px, 1vw, 15px);
+  }
 
 .win-message {
   position: absolute;
@@ -175,3 +174,21 @@ h2 {
   border-radius: clamp(10px, 1vw, 20px);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+/* Attempts container */
+.attempts-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.attempt-image {
+  width: 40px;
+  height: 40px;
+  background-image: '../Assets/coconut_lives.png'; /* Replace with your image using background-image */
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+

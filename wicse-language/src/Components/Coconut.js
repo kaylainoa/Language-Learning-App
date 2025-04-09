@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Coconut.css';
 import Scoreboard from './Scoreboard';
+import data from '../data.json';
+
+// Function to shuffle an array (Fisher-Yates Shuffle Algorithm)
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 // Function to generate non-overlapping positions
 const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistance) => {
@@ -30,7 +40,7 @@ const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistan
 };
 
 function Coconut() {
-  const questions = [
+  /*const questions = [
     { question: 'Choose the correct spelling for:', word: 'to read', answer: ['L', 'E', 'E', 'R'] },
     { question: 'Choose the correct spelling for:', word: 'to write', answer: ['E', 'S', 'C', 'R', 'I', 'B', 'I', 'R'] },
     { question: 'Choose the correct spelling for:', word: 'book', answer: ['L', 'I', 'B', 'R', 'O'] },
@@ -38,7 +48,10 @@ function Coconut() {
     { question: 'Choose the correct spelling for:', word: 'pencil', answer: ['L', 'Á', 'P', 'I', 'Z'] },
     { question: 'Choose the correct spelling for:', word: 'pen', answer: ['B', 'O', 'L', 'Í', 'G', 'R', 'A', 'F', 'O'] }
   ];
+*/
 
+
+  const questions = data["coconut-questions"];
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const currentQuestion = questions[currentQuestionIndex];
   const letters = currentQuestion.answer;
