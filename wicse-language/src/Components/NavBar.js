@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 
 const NavBar = () => {
-  // In a real app, you would get the points from your state management or props
   const playerPoints = 0;
   
   return (
@@ -12,7 +11,7 @@ const NavBar = () => {
       <div className="navbar-content">
         <div className="navbar-left">
           <Link to="/" className="navbar-logo">
-            <img src="/" alt="Parrot Logo" className="navbar-logo-image" />
+            <img src="/FluentFeathers.svg" alt="Parrot Logo" className="navbar-logo-image" />
           </Link>
           <div className="player-points">
             <span className="points-label">Points:</span>
