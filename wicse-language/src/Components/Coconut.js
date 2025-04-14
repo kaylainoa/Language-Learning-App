@@ -4,14 +4,19 @@ import Scoreboard from './Scoreboard';
 import data from '../data.json';
 
 // Function to shuffle an array (Fisher-Yates Shuffle Algorithm)
-const shuffleArray = (array) => {
+// Function to shuffle and select a subset of questions
+const getRandomQuestions = (questions, count) => {
+  const shuffled = [...questions].sort(() => Math.random() - 0.5); // Shuffle the array
+  return shuffled.slice(0, count); // Select the first 'count' questions
+};
+/*const shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
 };
-
+*/
 // Function to generate non-overlapping positions
 const generateNonOverlappingPositions = (numPositions, xRange, yRange, minDistance) => {
   const positions = [];
@@ -49,11 +54,20 @@ function Coconut() {
     { question: 'Choose the correct spelling for:', word: 'pen', answer: ['B', 'O', 'L', 'Í', 'G', 'R', 'A', 'F', 'O'] }
   ];
 */
-
-
-  const questions = data["coconut-questions"];
+/*
+const [shuffledQuestions] = useState(() => 
+  shuffleArray([...data["coconut-questions"]])
+);
+*/
+  // Select 5 random questions from coconut-questions
+  const [randomQuestions] = useState(() => 
+    getRandomQuestions(data["coconut-questions"], 5)
+  );
+  //const questions = data["coconut-questions"];
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const currentQuestion = questions[currentQuestionIndex];
+  //const currentQuestion = questions[currentQuestionIndex];
+ // const currentQuestion = shuffledQuestions[currentQuestionIndex];
+ const currentQuestion = randomQuestions[currentQuestionIndex];
   const letters = currentQuestion.answer;
   const wordLength = letters.length;
 
@@ -66,7 +80,18 @@ function Coconut() {
   const [incorrectAttempts, setIncorrectAttempts] = useState(0); // Track wrong attempts
 
   // Initialize game state for new questions
-  useEffect(() => {
+  // Initialize game state for new questions
+useEffect(() => {
+  if (!currentQuestion) return; // Handle initial empty state
+  const positions = generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 20); // Adjusted minDistance to ensure no overlap
+  setCoconutPositions(positions);
+  setVisibleLetters(letters.map((letter, index) => ({ letter, id: index })));
+  setTypedLetters([]);
+  setGlowRed(false);
+  setIncorrectAttempts(0);
+},[currentQuestionIndex]); // Add shuffledQuestions to dependencies
+
+  /*useEffect(() => {
     const positions = generateNonOverlappingPositions(letters.length, [10, 90], [20, 50], 20); // Adjusted minDistance to ensure no overlap
     setCoconutPositions(positions);
     setVisibleLetters(letters.map((letter, index) => ({ letter, id: index })));
@@ -74,7 +99,7 @@ function Coconut() {
     setGlowRed(false);
     setIncorrectAttempts(0);
   }, [currentQuestionIndex]);
-
+*/
   // Check if typed letters match the correct order
   const isCorrectOrder = () => {
     return typedLetters.join('') === currentQuestion.answer.join('');
@@ -108,12 +133,23 @@ function Coconut() {
   const handleCorrectAnswer = () => {
     setScore((prevScore) => prevScore + 10); // Increment score by 10
     const newIndex = currentQuestionIndex + 1;
+    if (newIndex >= randomQuestions.length) {
+      setGameWon(true); // End game as won
+    } else {
+      setCurrentQuestionIndex(newIndex); // Move to next question
+    }
+  };
+  /*
+  const handleCorrectAnswer = () => {
+    setScore((prevScore) => prevScore + 10); // Increment score by 10
+    const newIndex = currentQuestionIndex + 1;
     if (newIndex >= questions.length) {
       setGameWon(true); // End game as won
     } else {
       setCurrentQuestionIndex(newIndex); // Move to next question
     }
   };
+  */
 
   const handleWrongAnswer = () => {
     setGlowRed(true);
