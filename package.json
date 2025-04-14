@@ -3,6 +3,10 @@
     "web-vitals": "^4.2.4"
   },
   "dependencies": {
+    "express": "^4.21.2",
     "mongodb": "^6.13.1"
+  },
+  "scripts": {
+    "server": "node server.js"
   }
 }

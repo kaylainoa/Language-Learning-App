@@ -161,5 +161,25 @@
     {"question": "Translate the sentence: La escuela está cerrada.", "hint": "Escuela means school, cerrada means closed."},
     {"question": "Translate the sentence: Nosotros vamos al mercado.", "hint": "Vamos means we go, mercado means market."},
     {"question": "Translate the sentence: Me gusta el chocolate.", "hint": "Me gusta means I like, chocolate means chocolate."}
+  ],
+  
+    "coconut-questions" : [
+    { "question": "Choose the correct spelling for:", "word": "to read", "answer": ["L", "E", "E", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "to write", "answer": ["E", "S", "C", "R", "I", "B", "I", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "book", "answer": ["L", "I", "B", "R", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "letter", "answer": ["C", "A", "R", "T", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "pencil", "answer": ["L", "Á", "P", "I", "Z"] },
+    { "question": "Choose the correct spelling for:", "word": "pen", "answer": ["B", "O", "L", "Í", "G", "R", "A", "F", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "apple", "answer": ["M", "A", "N", "Z", "A", "N", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "food", "answer": ["A", "L", "I", "M", "E", "N", "T", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "fruit", "answer": ["F", "R", "U", "T", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "pineapple", "answer": ["P", "I", "Ñ", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "strawberry", "answer": ["F", "R", "E", "S", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "blueberry", "answer": ["A", "R", "Á", "N", "D", "A", "N", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "to drink", "answer": ["B", "E", "B", "E", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "water", "answer": ["A", "G", "U", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "juice", "answer": ["J", "U", "G", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "orange", "answer": ["N", "A", "R", "A", "N", "J", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "to eat", "answer": ["C", "O", "M", "E", "R"] }
   ]
 }
