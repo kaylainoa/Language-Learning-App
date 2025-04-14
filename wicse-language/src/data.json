@@ -73,6 +73,43 @@
     { "question": "The Spanish word for 'book' is _____", "answer": "libro" },
     { "question": "The Spanish word for 'dog' is _____", "answer": "perro" }
   ],
+  "volcano-questions": [
+    {"easy": [
+      { "spanish": "el estudiante", "english": "student" },
+      { "spanish": "la universidad", "english": "university" },
+      { "spanish": "el profesor", "english": "professor" },
+      { "spanish": "la clase", "english": "class" },
+      { "spanish": "el examen", "english": "exam" },
+      { "spanish": "la biblioteca", "english": "library" },
+      { "spanish": "el libro", "english": "book" },
+      { "spanish": "el cuaderno", "english": "notebook" },
+      { "spanish": "azul", "english": "blue" },
+      { "spanish": "naranja", "english": "orange" },
+      { "spanish": "universidad de florida", "english": "university of florida"}
+    ]},
+    {"medium": [
+      { "spanish": "los Gators", "english": "the Gators" },
+      { "spanish": "el campo de fútbol", "english": "football field" },
+      { "spanish": "la residencia estudiantil", "english": "dorm" },
+      { "spanish": "la beca", "english": "scholarship" },
+      { "spanish": "el compañero de cuarto", "english": "roommate" },
+      { "spanish": "la cafetería", "english": "cafeteria" },
+      { "spanish": "el campus", "english": "campus" },
+      { "spanish": "el laboratorio", "english": "laboratory" }
+    ]},
+    {"hard": [
+      { "spanish": "la fraternidad", "english": "fraternity" },
+      { "spanish": "la hermandad femenina", "english": "sorority" },
+      { "spanish": "el título universitario", "english": "college degree" },
+      { "spanish": "la graduación", "english": "graduation" },
+      { "spanish": "el caimán", "english": "alligator" },
+      { "spanish": "el orgullo naranja y azul", "english": "orange and blue pride" },
+      { "spanish": "el semestre de primavera", "english": "spring semester" },
+      { "spanish": "la investigación académica", "english": "academic research" },
+      { "spanish": "pasantía", "english": "internship"}
+    ]}
+  ],
+
   "comprehension-questions" : [
     {"question": "Translate the sentence: El sol brilla.", "hint": "Sol means sun, brilla means shines."},
     {"question": "Translate the sentence: Yo camino a la escuela.", "hint": "Camino means walk, escuela means school."},
