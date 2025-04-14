@@ -7,6 +7,8 @@ import questions from "./data.json";
 function Game() {
   const [parrotY, setParrotY] = useState(50); // Parrot's vertical position
   const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+
   const [currentSentence, setCurrentSentence] = useState("El ___ es grande."); // Current sentence to display
   const [currentWords, setCurrentWords] = useState([
     { text: "perro", correct: true, x: 100, y: 20 },
@@ -49,44 +51,55 @@ function Game() {
 
   // Word movement across the screen
   useEffect(() => {
+    if (gameOver) return;
+
     const interval = setInterval(() => {
       setCurrentWords((prevWords) =>
         prevWords.map((word) => ({
           ...word,
-          x: word.x - 5, // Moves words to the left
+          x: word.x - 5,
         }))
       );
     }, 200);
-
     return () => clearInterval(interval);
-  }, []);
+  }, [gameOver]);
 
   // Detect collision and handle score
   useEffect(() => {
-    currentWords.forEach((word) => {
+    if (gameOver) return;
+  
+    for (let word of currentWords) {
       if (word.x < 10 && Math.abs(word.y - parrotY) < 10) {
         if (word.correct) {
-          setScore((prev) => prev + 1); // Increase score if correct word is hit
-
-          // Get the current sentence index
-          const currentSentenceIndex = sentences.findIndex(sentence => sentence.sentence === currentSentence);
-
-          // Get next sentence with alternating correct answers
+          setScore((prev) => prev + 1);
+          const currentSentenceIndex = sentences.findIndex(
+            (s) => s.sentence === currentSentence
+          );
           const nextSentenceIndex = (currentSentenceIndex + 1) % sentences.length;
           setCurrentSentence(sentences[nextSentenceIndex].sentence);
-
-          // Update word choices with the correct answer at the right position
+  
           setCurrentWords([
-            { text: sentences[nextSentenceIndex].answers[0], correct: sentences[nextSentenceIndex].answers[0] === sentences[nextSentenceIndex].correct, x: 100, y: 20 },
-            { text: sentences[nextSentenceIndex].answers[1], correct: sentences[nextSentenceIndex].answers[1] === sentences[nextSentenceIndex].correct, x: 100, y: 70 },
+            {
+              text: sentences[nextSentenceIndex].answers[0],
+              correct: sentences[nextSentenceIndex].answers[0] === sentences[nextSentenceIndex].correct,
+              x: 100,
+              y: 20,
+            },
+            {
+              text: sentences[nextSentenceIndex].answers[1],
+              correct: sentences[nextSentenceIndex].answers[1] === sentences[nextSentenceIndex].correct,
+              x: 100,
+              y: 70,
+            },
           ]);
         } else {
-          alert("Game Over! You hit the wrong word.");
-          window.location.reload();
+          setGameOver(true);
+          break; 
         }
       }
-    });
-  }, [currentWords, parrotY, currentSentence]);
+    }
+  }, [currentWords, parrotY, currentSentence, gameOver]);
+  
 
   return (
     <div style={styles.gameContainer}>
@@ -119,6 +132,16 @@ function Game() {
           {word.text}
         </div>
       ))}
+     {/* game over */}
+     {gameOver && (
+        <div style={styles.overlay}>
+          <div style={styles.modal}>
+            <h2>Game Over!</h2>
+            <p>Your final score: {score}</p>
+            <button onClick={() => window.location.reload()}>Play Again</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -163,6 +186,32 @@ const styles = {
     padding: "5px 10px",
     borderRadius: "5px",
     textAlign: "center",
+  },
+  // game over screen
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 10,
+  },
+  // box for game over screen
+  modal: {
+    backgroundColor: "white",
+    padding: "40px 50px",
+    borderRadius: "12px",
+    textAlign: "center",
+    boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
+
+    minWidth: "300px",
+    minHeight: "200px",
+    fontSize: "22px",
+    lineHeight: "1.6", // adds spacing between lines
   },
 };
 
