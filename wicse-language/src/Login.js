@@ -14,7 +14,7 @@ const Login = () => {
 
     axios.post('http://localhost:3000/login', { email, password, rememberMe })
     .then((response) => {
-      console.log("Login successful:", response.data);
+     // console.log("Login successful:", response.data);
       alert("Login successful!");
     })
     .catch((error) => {
