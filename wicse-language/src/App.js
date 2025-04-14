@@ -15,8 +15,9 @@ import Volcanogame from './volcanogame';
 import NavBar from './Components/NavBar';
 import Coral from './Coral';
 import Surfing from './Surfing';
-import Coconut from './Coconut';
+import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
+import WinScreen from './Components/WinScreen';
 
 // navbar links
 import Login from './Login';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/winscreen" element={<WinScreen />} />
 
           <Route path="/ComingSoon" element={<ComingSoon />} />
 
@@ -47,6 +49,7 @@ function App() {
           <Route path="/surfing" element={<Surfing />} />
           <Route path="/coconut" element={<Coconut />} />
           <Route path="/beachball" element={<BeachBall />} />
+          
         </Routes>
       </div>
     </BrowserRouter>
