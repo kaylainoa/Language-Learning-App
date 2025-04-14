@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "question": "Choose the correct spelling for:",
+      "word": "to read",
+      "answer": ["L", "E", "E", "R"]
+    },
+    {
+      "id": 2,
+      "question": "Choose the correct spelling for:",
+      "word": "to write",
+      "answer": ["E", "S", "C", "R", "I", "B", "I", "R"]
+    },
+    {
+      "id": 3,
+      "question": "Choose the correct spelling for:",
+      "word": "book",
+      "answer": ["L", "I", "B", "R", "O"]
+    },
+    {
+      "id": 4,
+      "question": "Choose the correct spelling for:",
+      "word": "letter",
+      "answer": ["C", "A", "R", "T", "A"]
+    },
+    {
+      "id": 5,
+      "question": "Choose the correct spelling for:",
+      "word": "pencil",
+      "answer": ["L", "Á", "P", "I", "Z"]
+    },
+    {
+      "id": 6,
+      "question": "Choose the correct spelling for:",
+      "word": "pen",
+      "answer": ["B", "O", "L", "Í", "G", "R", "A", "F", "O"]
+    }
+  ]
+  
