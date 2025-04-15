@@ -168,7 +168,9 @@ function Beachball() {
   <canvas ref={canvasRef}></canvas>
 
   {gameOver ? (
-    <Scoreboard isWin = {gameOver} score = {score}/>
+    <div className="game-over-overlay">
+      <h2>🎉 Game Over! You reached 100 points! 🎉</h2>
+    </div>
   ) : (
     <div className="overlay-text">
       <h1>Hit the ball with the correct conjugation!</h1>
