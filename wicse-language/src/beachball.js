@@ -2,36 +2,38 @@ import React, { useRef, useEffect, useState } from "react";
 import "./beachball.css";
 import image5 from "./Assets/image5.png";
 import beachballImage from "./Assets/beachball.png";
-import questions from "./data.json";
+import Scoreboard from './Components/Scoreboard';
+import 
 
 function Beachball() {
   const canvasRef = useRef(null);
-  const ballArrayRef = useRef([]); // stores the ball objects
-  const currentQuestionDataRef = useRef(null); // stores the current question data
+  const ballArrayRef = useRef([]);
+  const currentQuestionDataRef = useRef(null);
+
   const [currentQuestion, setCurrentQuestion] = useState("");
   const [message, setMessage] = useState("");
+  const [score, setScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     canvas.width = window.innerWidth;
-    canvas.height = 540; 
+    canvas.height = 540;
 
-    // load the images
     const beachball = new Image();
     beachball.src = beachballImage;
     const background = new Image();
     background.src = image5;
 
-    // get the questions from json file
     const beachballQuestions = questions["beachball-questions"];
 
     class Ball {
       constructor(questionData, answer) {
         this.x = Math.random() * canvas.width;
-        this.y = canvas.height; // start at the bottom
+        this.y = canvas.height;
         this.size = 150;
-        this.speedY = 4.5;
+        this.speedY = 3.5;
         this.speedX = (Math.random() - 0.5) * 8;
         this.question = questionData.question;
         this.answers = questionData.answers;
@@ -42,7 +44,7 @@ function Beachball() {
       update() {
         this.y -= this.speedY;
         this.x += this.speedX;
-        this.speedY -= 0.02; // gravity effect
+        this.speedY -= 0.02;
         if (this.x + this.size > canvas.width || this.x - this.size < 0) {
           this.speedX *= -1;
         }
@@ -61,9 +63,8 @@ function Beachball() {
       }
     }
 
-    // spawn only three balls for each questions
     function spawnBalls() {
-      const randomQuestion = beachballQuestions[Math.floor(Math.random() * beachballQuestions.length)];
+      const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
       currentQuestionDataRef.current = randomQuestion;
       const shuffledAnswers = [...randomQuestion.answers].sort(() => Math.random() - 0.5);
       const newBalls = [];
@@ -92,6 +93,8 @@ function Beachball() {
     }
 
     function handleCanvasClick(event) {
+      if (gameOver) return;
+
       const rect = canvas.getBoundingClientRect();
       const clickX = event.clientX - rect.left;
       const clickY = event.clientY - rect.top;
@@ -108,11 +111,18 @@ function Beachball() {
         }
       });
 
-      // set the message when the ball is clicked on
       if (hitBall) {
         if (hitBall.currentAnswer === hitBall.correctAnswer) {
           setMessage("Correct!");
-          setTimeout(spawnBalls, 750);
+          setScore((prev) => {
+            const newScore = prev + 10;
+            if (newScore >= 100) {
+              setGameOver(true);
+            } else {
+              setTimeout(spawnBalls, 750);
+            }
+            return newScore;
+          });
         } else {
           setMessage("Wrong! Try again.");
         }
@@ -122,6 +132,8 @@ function Beachball() {
     canvas.addEventListener("click", handleCanvasClick);
 
     function animate() {
+      if (gameOver) return;
+
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -137,7 +149,7 @@ function Beachball() {
         ballArrayRef.current = [];
         setTimeout(reSpawnBalls, 1000);
       }
-      
+
       requestAnimationFrame(animate);
     }
 
@@ -149,20 +161,25 @@ function Beachball() {
     return () => {
       canvas.removeEventListener("click", handleCanvasClick);
     };
-  }, []);
+  }, [gameOver]);
 
   return (
     <div className="beachball-container">
-      <canvas ref={canvasRef}></canvas>
-      <div className="overlay-text">
-        <h1>Hit the ball with the correct conjugation!</h1>
-        <p>{currentQuestion}</p>
-        <div className="message-container">
-          <p>{message}</p>
-        </div>
+  <canvas ref={canvasRef}></canvas>
+
+  {gameOver ? (
+    <Scoreboard isWin = {gameOver} score = {score}/>
+  ) : (
+    <div className="overlay-text">
+      <h1>Hit the ball with the correct conjugation!</h1>
+      <p>{currentQuestion}</p>
+      <p>Score: {score}</p>
+      <div className="message-container">
+        <p>{message}</p>
       </div>
     </div>
-  );
+  )}
+</div>  );
 }
 
-export default Beachball;
+export default BeachBall;
