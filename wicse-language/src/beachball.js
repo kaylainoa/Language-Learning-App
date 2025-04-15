@@ -3,7 +3,7 @@ import "./beachball.css";
 import image5 from "./Assets/image5.png";
 import beachballImage from "./Assets/beachball.png";
 import Scoreboard from './Components/Scoreboard';
-import 
+import questions from "./data.json";
 
 function Beachball() {
   const canvasRef = useRef(null);
@@ -184,4 +184,4 @@ function Beachball() {
 </div>  );
 }
 
-export default BeachBall;
+export default Beachball;
