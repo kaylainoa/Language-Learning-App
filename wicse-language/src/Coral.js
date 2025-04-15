@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Fish from './Assets/FishImage.PNG';
 import CoralPic from './Assets/coralll.png';
 import Ocean from './Assets/water.png';
-import questions from "./data.json";
+import data from "./data.json";
 
 function Coral() {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -12,7 +12,7 @@ function Coral() {
   const fishPosition = (questionIndex / totalQuestions) * 100; 
   const coralCount = totalQuestions - questionIndex; 
 
-  const questions = questions["coral-questions"]
+  const questions = data["coral-questions"]
   // [
   //   { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
   //   { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
