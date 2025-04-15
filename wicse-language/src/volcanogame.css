@@ -1,0 +1,527 @@
+/* Volcano Game Specific Styles */
+
+.volcano-page {
+  background: linear-gradient(to bottom, #f5e6d3, #b8e0d8, #46C7AD);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  overflow-y: auto;
+  padding-top: 50px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.volcano-page::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, rgba(70, 199, 173, 0.8) 0%, rgba(70, 199, 173, 0.3) 50%, transparent 100%);
+  z-index: 0;
+}
+
+.game-container {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Start Screen */
+.start-screen {
+  text-align: center;
+}
+
+.volcano-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.volcano-image {
+  width: 200px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L20 90 H80 Z' fill='%23734522'/%3E%3Cpath d='M50 20 L30 90 H70 Z' fill='%23a86032'/%3E%3Cpath d='M50 30 L40 90 H60 Z' fill='%23d25a31'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.intro-text {
+  color: #36635a;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.intro-text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.difficulty-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.difficulty-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.difficulty-button.easy {
+  background-color: #46C7AD;
+}
+
+.difficulty-button.medium {
+  background-color: #F7C22F;
+  color: #36635a;
+}
+
+.difficulty-button.hard {
+  background-color: #FF9BBC;
+}
+
+/* Game Play */
+.game-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.game-status {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #36635a;
+  font-weight: 600;
+}
+
+.score-display, .timer, .difficulty-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.difficulty-badge {
+  background-color: #F7C22F;
+  color: #36635a;
+}
+
+/* Volcano Animation */
+.volcano-container {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.volcano {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-origin: bottom center;
+  transition: all 0.3s ease;
+}
+
+.volcano::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 180px solid #734522;
+  z-index: 1;
+}
+
+.volcano::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 120px solid #a86032;
+  z-index: 2;
+}
+
+.lava {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 15px;
+  background-color: #ff6b35;
+  border-radius: 50% 50% 0 0;
+  opacity: 0;
+  z-index: 3;
+  transition: all 0.5s ease;
+}
+
+.smoke {
+  position: absolute;
+  bottom: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  z-index: 4;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.volcano.erupting .lava {
+  opacity: 1;
+  height: 60px;
+  width: 60px;
+  bottom: 120px;
+  background: radial-gradient(circle, #ffdd00, #ff6b35, #cb2d3e);
+  animation: eruption 1.5s ease-out;
+}
+
+.volcano.erupting .smoke {
+  opacity: 1;
+  animation: smoking 2s ease-out;
+}
+
+@keyframes eruption {
+  0% {
+    height: 15px;
+    width: 40px;
+    bottom: 60%;
+    opacity: 0.7;
+  }
+  50% {
+    height: 120px;
+    width: 60px;
+    bottom: 180px;
+    opacity: 1;
+  }
+  100% {
+    height: 60px;
+    width: 120px;
+    bottom: 250px;
+    opacity: 0;
+  }
+}
+
+@keyframes smoking {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  20% {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(169, 169, 169, 0.8);
+    opacity: 0.7;
+    bottom: 200px;
+  }
+  60% {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgba(169, 169, 169, 0.5);
+    opacity: 0.5;
+    bottom: 250px;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(169, 169, 169, 0.3);
+    opacity: 0;
+    bottom: 300px;
+  }
+}
+
+/* Word Challenge */
+.word-challenge {
+  text-align: center;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.word-challenge h3 {
+  color: #36635a;
+  margin-bottom: 0.75rem;
+}
+
+.spanish-word {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #36635a;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.answer-form {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.answer-input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #46C7AD;
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  width: 60%;
+  max-width: 300px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.answer-input:focus {
+  border-color: #F7C22F;
+  box-shadow: 0 0 0 3px rgba(247, 194, 47, 0.3);
+}
+
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #F7C22F;
+  color: #36635a;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #e1af24;
+  transform: translateY(-2px);
+}
+
+.feedback {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.feedback.correct {
+  background-color: rgba(70, 199, 173, 0.3);
+  color: #265e52;
+}
+
+.feedback.incorrect {
+  background-color: rgba(255, 155, 188, 0.3);
+  color: #9e3257;
+}
+
+/* Game Over */
+.game-over {
+  text-align: center;
+  color: #36635a;
+}
+
+.game-over h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #36635a;
+}
+
+.final-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FF9BBC;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.words-learned {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+}
+
+.words-learned h3 {
+  margin-bottom: 1rem;
+  color: #36635a;
+}
+
+.vocabulary-list {
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.vocabulary-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.vocabulary-list li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  color: #36635a;
+}
+
+.game-over-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.primary-button, .secondary-button {
+  display: inline-block;
+  padding: 0.75rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.primary-button {
+  background-color: #F7C22F;
+  color: #36635a;
+}
+
+.secondary-button {
+  background-color: #46C7AD;
+  color: white;
+}
+
+.primary-button:hover, .secondary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 1.5rem;
+  }
+
+  .volcano-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .spanish-word {
+    font-size: 1.75rem;
+  }
+
+  .volcano-container {
+    height: 200px;
+  }
+
+  .volcano {
+    width: 150px;
+    height: 150px;
+  }
+
+  .volcano::before {
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 135px solid #734522;
+  }
+
+  .volcano::after {
+    bottom: 15px;
+    left: 30px;
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 90px solid #a86032;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 1rem;
+  }
+
+  .difficulty-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .game-status {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .answer-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .answer-input {
+    width: 100%;
+  }
+
+  .vocabulary-list {
+    max-height: 150px;
+  }
+
+  .game-over-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

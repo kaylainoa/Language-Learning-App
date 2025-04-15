@@ -1,0 +1,185 @@
+{
+  "beachball-questions": [
+    {
+      "question": "What is the yo form of 'hablar' in present tense?",
+      "correct": "Hablo",
+      "answers": ["Habla", "Hablo", "Hablas"]
+    },
+    {
+      "question": "What is the tú form of 'comer' in present tense?",
+      "correct": "Comes",
+      "answers": ["Como", "Comes", "Comemos"]
+    },
+    {
+      "question": "What is the él/ella form of 'vivir' in present tense?",
+      "correct": "Vive",
+      "answers": ["Vivo", "Vives", "Vive"]
+    },
+    {
+      "question": "What is the nosotros form of 'ser' in past tense?",
+      "correct": "Fuimos",
+      "answers": ["Fuimos", "Somos", "Eran"]
+    },
+    {
+      "question": "What is the yo form of 'tener' in future tense?",
+      "correct": "Tendré",
+      "answers": ["Tendrá", "Tendré", "Tienes"]
+    },
+    {
+      "question": "What is the yo form of 'escribir' in present tense?",
+      "correct": "Escribo",
+      "answers": ["Escribe", "Escribimos", "Escribo"]    
+    },
+    {
+      "question": "What is the tú form of 'hacer' in present tense?",
+      "correct": "Haces",
+      "answers": ["Haces", "Hago", "Hace"]
+    },
+    {
+      "question": "What is the nosotros form of 'estar' in present tense?",
+      "correct": "Estamos",
+      "answers": ["Estás", "Estamos", "Están"]
+    },
+    {
+      "question": "What is the ellos/ellas form of 'beber' in present tense?",
+      "correct": "Beben",
+      "answers": ["Bebes", "Beben", "Bebemos"]
+    },
+    {
+      "question": "What is the yo form of 'poder' in present tense?",
+      "correct": "Puedo",
+      "answers": ["Puedo", "Puedes", "Pueda"]
+    }
+  ],
+  "surfing-questions": [
+    { "sentence": "El ___ es grande.", "correct": "perro", "answers": ["perro", "gata"] },
+    { "sentence": "El ___ está jugando.", "correct": "pajaro", "answers": ["hombre", "pajaro"] },
+    { "sentence": "La ___ corre rápido.", "correct": "gata", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ está durmiendo.", "correct": "pajaro", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ es pequeño.", "correct": "hombre", "answers": ["gata", "hombre"] },
+    { "sentence": "La ___ es rápida.", "correct": "gata", "answers": ["hombre", "gata"] },
+    { "sentence": "La ___ es pequeña.", "correct": "gata", "answers": ["pajaro", "gata"] },
+    { "sentence": "El ___ vuela.", "correct": "pajaro", "answers": ["pajaro", "gato"] },
+    { "sentence": "El ___ corre.", "correct": "gato", "answers": ["pajaro", "gato"] },
+    { "sentence": "La ___ está comiendo.", "correct": "gata", "answers": ["gata", "perro"] }
+  ],
+  "coral-questions" : [
+    { "question": "Yo (speak) ________ español todos los días.", "answer": "hablo" },
+    { "question": "Ellos (have) ________ una fiesta el fin de semana pasado.", "answer": "tuvieron" },
+    { "question": "Mi madre está (happy)________ porque ganó un premio.", "answer": "feliz" },
+    { "question": "'Rojo' means ________. (color)", "answer": "red" },
+    { "question": "'Manzana' is the Spanish word for ________. (fruit)", "answer": "apple" },
+    { "question": "The Spanish word for 'sun' is _____", "answer": "sol" },
+    { "question": "The Spanish word for 'book' is _____", "answer": "libro" },
+    { "question": "The Spanish word for 'dog' is _____", "answer": "perro" }
+  ],
+  "volcano-questions": [
+    {"easy": [
+      { "spanish": "el estudiante", "english": "student" },
+      { "spanish": "la universidad", "english": "university" },
+      { "spanish": "el profesor", "english": "professor" },
+      { "spanish": "la clase", "english": "class" },
+      { "spanish": "el examen", "english": "exam" },
+      { "spanish": "la biblioteca", "english": "library" },
+      { "spanish": "el libro", "english": "book" },
+      { "spanish": "el cuaderno", "english": "notebook" },
+      { "spanish": "azul", "english": "blue" },
+      { "spanish": "naranja", "english": "orange" },
+      { "spanish": "universidad de florida", "english": "university of florida"}
+    ]},
+    {"medium": [
+      { "spanish": "los Gators", "english": "the Gators" },
+      { "spanish": "el campo de fútbol", "english": "football field" },
+      { "spanish": "la residencia estudiantil", "english": "dorm" },
+      { "spanish": "la beca", "english": "scholarship" },
+      { "spanish": "el compañero de cuarto", "english": "roommate" },
+      { "spanish": "la cafetería", "english": "cafeteria" },
+      { "spanish": "el campus", "english": "campus" },
+      { "spanish": "el laboratorio", "english": "laboratory" }
+    ]},
+    {"hard": [
+      { "spanish": "la fraternidad", "english": "fraternity" },
+      { "spanish": "la hermandad femenina", "english": "sorority" },
+      { "spanish": "el título universitario", "english": "college degree" },
+      { "spanish": "la graduación", "english": "graduation" },
+      { "spanish": "el caimán", "english": "alligator" },
+      { "spanish": "el orgullo naranja y azul", "english": "orange and blue pride" },
+      { "spanish": "el semestre de primavera", "english": "spring semester" },
+      { "spanish": "la investigación académica", "english": "academic research" },
+      { "spanish": "pasantía", "english": "internship"}
+    ]}
+  ],
+
+  "comprehension-questions" : [
+    {"question": "Translate the sentence: El sol brilla.", "hint": "Sol means sun, brilla means shines."},
+    {"question": "Translate the sentence: Yo camino a la escuela.", "hint": "Camino means walk, escuela means school."},
+    {"question": "Translate the sentence: Tú comes manzanas.", "hint": "Comes means eat, manzanas means apples."},
+    {"question": "Translate the sentence: Ella tiene una bicicleta.", "hint": "Tiene means has, bicicleta means bicycle."},
+    {"question": "Translate the sentence: Nosotros vemos la televisión.", "hint": "Vemos means watch, televisión means television."},
+    {"question": "Translate the sentence: Ellos escuchan música.", "hint": "Escuchan means listen, música means music."},
+    {"question": "Translate the sentence: ¿Cómo estás?", "hint": "Means: How are you?"},
+    {"question": "Translate the sentence: Estoy cansado.", "hint": "Estoy means I am, cansado means tired."},
+    {"question": "Translate the sentence: ¿Dónde vives?", "hint": "Dónde means where, vives means do you live."},
+    {"question": "Translate the sentence: Vivo en una ciudad pequeña.", "hint": "Vivo means I live, ciudad means city, pequeña means small."},
+    {"question": "Translate the sentence: Hoy es lunes.", "hint": "Hoy means today, lunes means Monday."},
+    {"question": "Translate the sentence: Hace frío hoy.", "hint": "Hace frío means it’s cold, hoy means today."},
+    {"question": "Translate the sentence: Me llamo Ana.", "hint": "Me llamo means my name is."},
+    {"question": "Translate the sentence: ¿Qué te gusta hacer?", "hint": "Means: What do you like to do?"},
+    {"question": "Translate the sentence: Me gusta bailar.", "hint": "Me gusta means I like, bailar means to dance."},
+    {"question": "Translate the sentence: El perro duerme mucho.", "hint": "Perro means dog, duerme means sleeps, mucho means a lot."},
+    {"question": "Translate the sentence: Los niños saltan en el patio.", "hint": "Niños means children, saltan means jump, patio means yard."},
+    {"question": "Translate the sentence: Tú lees muy bien.", "hint": "Lees means read, muy bien means very well."},
+    {"question": "Translate the sentence: ¿Cuántos años tienes?", "hint": "Means: How old are you?"},
+    {"question": "Translate the sentence: Tengo diez años.", "hint": "Tengo means I have, diez años means ten years (old)."},
+    {"question": "Translate the sentence: Él abre la puerta.", "hint": "Abre means opens, puerta means door."},
+    {"question": "Translate the sentence: Nosotros escribimos en el cuaderno.", "hint": "Escribimos means write, cuaderno means notebook."},
+    {"question": "Translate the sentence: ¿Qué día es hoy?", "hint": "Means: What day is today?"},
+    {"question": "Translate the sentence: El autobús llega tarde.", "hint": "Autobús means bus, llega means arrives, tarde means late."},
+    {"question": "Translate the sentence: Ellas bailan en la fiesta.", "hint": "Bailan means dance, fiesta means party."},
+    {"question": "Translate the sentence: ¿Tienes hermanos?", "hint": "Means: Do you have siblings?"},
+    {"question": "Translate the sentence: Sí, tengo dos hermanas.", "hint": "Tengo means I have, hermanas means sisters."},
+    {"question": "Translate the sentence: El bebé llora mucho.", "hint": "Bebé means baby, llora means cries."},
+    {"question": "Translate the sentence: Yo miro las estrellas.", "hint": "Miro means look/watch, estrellas means stars."},
+    {"question": "Translate the sentence: El libro está en la mesa.", "hint": "Libro means book, mesa means table."},
+    {"question": "Translate the sentence: Yo tengo un perro.", "hint": "Tengo means I have, perro means dog."},
+    {"question": "Translate the sentence: Ella es mi hermana.", "hint": "Es means is, hermana means sister."},
+    {"question": "Translate the sentence: Nosotros comemos pan.", "hint": "Comemos means we eat, pan means bread."},
+    {"question": "Translate the sentence: Él vive en México.", "hint": "Vive means lives, México is Mexico."},
+    {"question": "Translate the sentence: Tú hablas inglés.", "hint": "Hablas means you speak, inglés means English."},
+    {"question": "Translate the sentence: Ellos corren en el parque.", "hint": "Corren means run, parque means park."},
+    {"question": "Translate the sentence: Yo estudio español.", "hint": "Estudio means I study, español means Spanish."},
+    {"question": "Translate the sentence: ¿Tú tienes un lápiz?", "hint": "Tienes means you have, lápiz means pencil."},
+    {"question": "Translate the sentence: La casa es grande.", "hint": "Casa means house, grande means big."},
+    {"question": "Translate the sentence: Mi mamá cocina arroz.", "hint": "Cocina means cooks, arroz means rice."},
+    {"question": "Translate the sentence: Nosotros leemos un libro.", "hint": "Leemos means we read, libro means book."},
+    {"question": "Translate the sentence: ¿Dónde está el gato?", "hint": "Dónde means where, gato means cat."},
+    {"question": "Translate the sentence: Yo bebo agua.", "hint": "Bebo means I drink, agua means water."},
+    {"question": "Translate the sentence: Ellas cantan bien.", "hint": "Cantan means sing, bien means well."},
+    {"question": "Translate the sentence: ¿Qué hora es?", "hint": "Means: What time is it?"},
+    {"question": "Translate the sentence: Tú escribes una carta.", "hint": "Escribes means you write, carta means letter."},
+    {"question": "Translate the sentence: El niño juega con la pelota.", "hint": "Niño means boy, juega means plays, pelota means ball."},
+    {"question": "Translate the sentence: La escuela está cerrada.", "hint": "Escuela means school, cerrada means closed."},
+    {"question": "Translate the sentence: Nosotros vamos al mercado.", "hint": "Vamos means we go, mercado means market."},
+    {"question": "Translate the sentence: Me gusta el chocolate.", "hint": "Me gusta means I like, chocolate means chocolate."}
+  ],
+  
+    "coconut-questions" : [
+    { "question": "Choose the correct spelling for:", "word": "to read", "answer": ["L", "E", "E", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "to write", "answer": ["E", "S", "C", "R", "I", "B", "I", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "book", "answer": ["L", "I", "B", "R", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "letter", "answer": ["C", "A", "R", "T", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "pencil", "answer": ["L", "Á", "P", "I", "Z"] },
+    { "question": "Choose the correct spelling for:", "word": "pen", "answer": ["B", "O", "L", "Í", "G", "R", "A", "F", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "apple", "answer": ["M", "A", "N", "Z", "A", "N", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "food", "answer": ["A", "L", "I", "M", "E", "N", "T", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "fruit", "answer": ["F", "R", "U", "T", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "pineapple", "answer": ["P", "I", "Ñ", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "strawberry", "answer": ["F", "R", "E", "S", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "blueberry", "answer": ["A", "R", "Á", "N", "D", "A", "N", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "to drink", "answer": ["B", "E", "B", "E", "R"] },
+    { "question": "Choose the correct spelling for:", "word": "water", "answer": ["A", "G", "U", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "juice", "answer": ["J", "U", "G", "O"] },
+    { "question": "Choose the correct spelling for:", "word": "orange", "answer": ["N", "A", "R", "A", "N", "J", "A"] },
+    { "question": "Choose the correct spelling for:", "word": "to eat", "answer": ["C", "O", "M", "E", "R"] }
+  ]
+}

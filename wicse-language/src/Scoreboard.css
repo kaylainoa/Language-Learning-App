@@ -1,0 +1,145 @@
+/* Overlay that covers the entire screen */
+/*
+.scoreboard-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+/* Main scoreboard popup */
+/*
+.scoreboard-popup {
+    /*position: relative;*/
+   /* position: absolute;
+    width: 80%; /* Responsive width */
+   /* height: calc(50vh + 100px); /* Scales height dynamically based on screen size */ 
+ /*  max-width: 500px; /* Limit maximum width */
+ /*   height: auto; /* Adjust height dynamically */
+  /*  background-image: url('../Assets/scoreboard.PNG'); /* Replace with your image path */
+  /*  background-size: contain; /* Ensure the image fits inside the container */
+  /*  background-position: center; /* Center the image */
+  /*  background-repeat: no-repeat; /* Prevent tiling */
+  /*  display: flex;
+    flex-direction: column;
+    align-items: center;
+   /* padding: calc(15vw + 50px); /* Use responsive padding that scales with screen size */
+  /* padding: 10%; /* Simpler percentage-based padding */  
+/*}
+ 
+ /* Title banner styling */
+{/* .scoreboard-title {
+    position: absolute; /* Position relative to .scoreboard-popup */
+    top: 16%; /* Adjust vertical position (relative to .scoreboard-popup) */
+    left: 50%; /* Center horizontally */
+    transform: translateX(0%); /* Correct centering offset */
+    width: 28%; /* Make title width responsive */
+    height: 10%;
+    max-width: 100px; /* Limit maximum width */
+    text-align: center; /* Center-align text */
+    background-color: rgba(160, 82, 45, 0.8); /* Semi-transparent reddish-brown overlay */
+    color: white;
+    font-family: 'Pacifico', sans-serif;
+  /*  font-size: 50%; /* Responsive font size (scales with viewport width) */
+    font-size: clamp(15px, 8%, 30px);
+  /* Use % for font scaling relative to container */
+    font-weight: bold;
+    padding: 3%; /* Responsive padding */
+  /* padding: calc(2vw + 5px); /* Reduced padding scaling factor */
+   /* border-radius: 10px; /* Rounded corners */
+   /* border-radius: calc(0.5vw + 5px); /* Rounded corners that scale proportionally */
+    border-radius: 8px;
+}
+  /* Points section */
+.points-section {
+   /* width: 70%; /* Make the width relative to the scoreboard */
+   width: clamp(200px, 50%, 400px); /* Dynamically scale width */ 
+   max-width: 300px; /* Prevent it from growing too large */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: clamp(10px, 2%, 20px); /* Scale margin dynamically */
+    /* margin-bottom: calc(2%); /* Scale margin relative to the scoreboard */
+}
+
+  
+.points-label-container {
+    background-color: #a0522d; /* Same as title */
+    border-radius: 10px;
+    padding: clamp(5px, 1vw, 15px); /* Responsive padding */
+    margin-bottom: clamp(5px, 1vw, 10px); /* Responsive spacing */
+   /* padding: calc(0.5vw + 5px); /* Scale padding dynamically */
+    /*margin-bottom: 10px;*/
+    border: 3px solid #8b4513;
+    width: 100%; /* Ensure it fits within .points-section */
+}
+
+  
+.points-label {
+    color: white;
+    font-size: clamp(12px, 2vw, 20px); /* Dynamically scale font size */
+    /*font-size: calc(1vw + 10px); /* Scale font size dynamically */
+    font-weight: bold;
+}
+
+  
+.points-value-container {
+    background-color: #cd853f; /* Lighter golden-brown */
+    border-radius: 10px;
+    padding: clamp(10px, 2vw, 20px); /* Dynamically scale padding */
+    /* padding: calc(1vw + 10px); /* Scale padding dynamically */
+    text-align: center;
+    border: 3px solid #8b4513;
+    width: 100%; /* Ensure it fits within .points-section */
+}
+
+.points-value {
+    color: white;
+    font-size: clamp(18px, 4vw, 36px); /* Dynamically scale font size */
+    /*font-size: calc(2vw + 12px); /* Scale font size dynamically */
+    font-weight: bold;
+}
+
+  
+  /* Levels button */
+  .levels-button-container {
+    position: relative;
+    width: 130px;
+    height: 45px;
+    margin-top: 10px;
+  }
+  
+  .levels-rectangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #a0522d; /* Match title color */
+    border-radius: 10px;
+    border: 3px solid #8b4513;
+  }
+  
+  .levels-button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  .levels-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  

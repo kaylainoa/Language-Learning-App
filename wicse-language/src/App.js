@@ -15,17 +15,20 @@ import Volcanogame from './volcanogame';
 import NavBar from './Components/NavBar';
 import Coral from './Coral';
 import Surfing from './Surfing';
-import Coconut from './Coconut';
+import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
+//import WinScreen from './Components/WinScreen';
 
 // navbar links
 import Login from './Login';
 import Chat from './Chat';
 import Profile from './Profile';
 
+import ComingSoon from './ComingSoon';
 
-import logo from './logo.svg';
 import './App.css';
+
+//line 42 removed <Route path="/winscreen" element={<WinScreen />} />
 
 function App() {
   return (
@@ -35,9 +38,12 @@ function App() {
         <Routes>
           {/* nav bar links */}
           <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Home />} />
-          <Route path="/profile" element={<Home />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          
+
+          <Route path="/ComingSoon" element={<ComingSoon />} />
 
           {/* minigame pages */}
           <Route path="/volcano" element={<Volcanogame />} />
@@ -45,6 +51,7 @@ function App() {
           <Route path="/surfing" element={<Surfing />} />
           <Route path="/coconut" element={<Coconut />} />
           <Route path="/beachball" element={<BeachBall />} />
+          
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,0 +1,56 @@
+import React from 'react';
+import './Coconut.css';
+import { useState, useEffect } from 'react';
+
+function Coconut() {
+  const letters = ['L', 'E', 'R', 'E']; // Array of letters
+  const wordLength = letters.length;
+  const [typedLetters, setTypedLetters] = useState([]); // State to hold typed letters
+ const [visibleLetters, setVisibleLetters] = useState(
+    letters.map((letter, index) => ({ letter, id: index, position: 0 }))
+  ); // State to track visible letters with unique IDs and positions
+
+  const handleLetterClick = (id) => {
+    // Find the letter to add to typed letters
+    const clickedLetter = visibleLetters.find((l) => l.id === id).letter;
+
+    // Add clicked letter to typed letters
+    setTypedLetters((prev) => [...prev, clickedLetter]);
+
+    // Remove clicked letter from visible letters
+    setVisibleLetters((prev) => prev.filter((l) => l.id !== id));
+  };
+
+
+  return (
+    <div className="coconut-background">
+      <div className="question-container">
+        <h2>Choose the correct spelling for:</h2>
+        <div className="word-container">
+          <span className="word">to read</span>
+        </div>
+      </div>
+      <div className="typed-letters-box">
+        {/* Render empty bars */}
+        {Array.from({ length: wordLength }).map((_, index) => (
+          <div key={index} className="letter-slot">
+            <span className="typed-letter">{typedLetters[index] || ''}</span>
+          </div>
+        ))}
+      </div>
+      <div className="coconut-container">
+      {visibleLetters.map((letterObject) => (
+          <div
+            key={letterObject.id}
+            className="coconut"
+            onClick={() => handleLetterClick(letterObject.id)}
+          >
+            <div className="coconut-letter">{letterObject.letter}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Coconut;
