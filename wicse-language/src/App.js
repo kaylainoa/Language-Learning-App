@@ -21,6 +21,7 @@ import BeachBall from './beachball';
 
 // navbar links
 import Login from './Login';
+import SignUp from './SignUp';
 import Chat from './Chat';
 import Profile from './Profile';
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           
 
           <Route path="/ComingSoon" element={<ComingSoon />} />
