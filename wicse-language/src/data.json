@@ -71,7 +71,19 @@
     { "question": "'Manzana' is the Spanish word for ________. (fruit)", "answer": "apple" },
     { "question": "The Spanish word for 'sun' is _____", "answer": "sol" },
     { "question": "The Spanish word for 'book' is _____", "answer": "libro" },
-    { "question": "The Spanish word for 'dog' is _____", "answer": "perro" }
+    { "question": "The Spanish word for 'dog' is _____", "answer": "perro" },
+    { "question": "The Spanish word for 'shirt' is _____", "answer": "camisa"},
+    {"question": "The Spanish word for 'bed' is _____", "answer": "cama"},
+    {"question": "The Spanish word for 'table' is _____", "answer": "mesa"},
+    {"question": "The Spanish word for 'window' is _____", "answer": "ventana"},
+    {"question": "The Spanish word for 'chair' is _____", "answer": "silla"},
+    {"question": "The Spanish word for 'water' is _____", "answer": "agua"},
+    {"question": "The Spanish word for 'fire' is _____", "answer": "fuego"},
+    {"question": "The Spanish word for 'door' is _____", "answer": "puerta"},
+    {"question": "The Spanish word for 'house' is _____", "answer": "casa"},
+    {"question": "The Spanish word for 'flower' is _____", "answer": "flor"},
+    {"question": "The Spanish word for 'cat' is _____", "answer": "gata"},
+    {"question": "The Spanish word for 'tree' is _____", "answer": "arbol"}
   ],
   "volcano-questions": [
     {"easy": [
