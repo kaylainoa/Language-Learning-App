@@ -17,7 +17,7 @@ import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
-import WinScreen from './Components/WinScreen';
+//import WinScreen from './Components/WinScreen';
 
 // navbar links
 import Login from './Login';
@@ -27,6 +27,8 @@ import Profile from './Profile';
 import ComingSoon from './ComingSoon';
 
 import './App.css';
+
+//line 42 removed <Route path="/winscreen" element={<WinScreen />} />
 
 function App() {
   return (
@@ -39,7 +41,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/winscreen" element={<WinScreen />} />
+          
 
           <Route path="/ComingSoon" element={<ComingSoon />} />
 

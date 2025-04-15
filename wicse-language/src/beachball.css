@@ -16,6 +16,22 @@ canvas {
     object-fit: cover;
 }
 
+.game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 540px; /* match canvas height */
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'Fuzzy Bubbles', sans-serif;
+    z-index: 10;
+  }  
+
 .overlay-text {
     position: absolute;
     top: 25%; /* Moved down from previous version */
