@@ -17,6 +17,7 @@ import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
+import Comprehension from './Comprehension'; 
 
 // navbar links
 import Login from './Login';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/surfing" element={<Surfing />} />
           <Route path="/coconut" element={<Coconut />} />
           <Route path="/beachball" element={<BeachBall />} />
+          <Route path="/comprehension" element={<Comprehension />} /> 
           
         </Routes>
       </div>

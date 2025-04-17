@@ -15,25 +15,76 @@ function Home() {
     
     // Map special levels to their corresponding pages
     switch(levelNumber) {
+      case 1:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 1';
+        break;
+      case 2:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 2';
+        break;  
       case 3:
         isLinked = true;
         path = '/beachball';
         pageName = 'Level 3';
+        break;
+      case 4:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 4';
+        break
+      case 5:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 5';
         break;
       case 6:
         isLinked = true;
         path = '/coconut';
         pageName = 'Level 6';
         break;
+      case 7:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 7';
+        break
+      case 8:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 8';
+        break;
       case 9:
         isLinked = true;
         path = '/coral';
         pageName = 'Level 9';
         break;
+      case 10:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 10';
+        break;
+      case 11:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 11';
+        break;
       case 12:
         isLinked = true;
         path = '/surfing';
         pageName = 'Level 12';
+        break;
+      case 13:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 13';
+        break;
+
+      case 14:
+        isLinked = true;
+        path = '/comprehension';
+        pageName = 'Level 14';
         break;
       case 15:
         isLinked = true;
