@@ -10,9 +10,10 @@ function Coral() {
   const [selectedQuestions, setSelectedQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const totalQuestions = 10; // Adjust based on your questions array
+  const coralCount = 0;
+  const fishPosition = 0;
 
-
-  const questions = questions["coral-questions"]
+  const questions = data["coral-questions"]
   // [
   //   { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
   //   { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
