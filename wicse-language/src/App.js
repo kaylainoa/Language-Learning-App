@@ -27,6 +27,8 @@ import ComingSoon from './ComingSoon';
 
 import './App.css';
 
+//line 42 removed <Route path="/winscreen" element={<WinScreen />} />
+
 function App() {
   return (
     <BrowserRouter>
@@ -38,6 +40,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          
 
           <Route path="/ComingSoon" element={<ComingSoon />} />
 

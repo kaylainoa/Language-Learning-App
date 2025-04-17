@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from "react";
 import "./beachball.css";
 import image5 from "./Assets/image5.png";
 import beachballImage from "./Assets/beachball.png";
-import questions from "./data.json";
 
 function Beachball() {
   const canvasRef = useRef(null);
@@ -17,21 +16,71 @@ function Beachball() {
     canvas.width = window.innerWidth;
     canvas.height = 540; 
 
-    // load the images
+    // Load images
     const beachball = new Image();
     beachball.src = beachballImage;
     const background = new Image();
     background.src = image5;
 
-    // get the questions from json file
-    const beachballQuestions = questions["beachball-questions"];
+    const questions = [
+      {
+        question: "What is the yo form of 'hablar' in present tense?",
+        correct: "Hablo",
+        answers: ["Habla", "Hablo", "Hablas"]
+      },
+      {
+        question: "What is the tú form of 'comer' in present tense?",
+        correct: "Comes",
+        answers: ["Como", "Comes", "Comemos"]
+      },
+      {
+        question: "What is the él/ella form of 'vivir' in present tense?",
+        correct: "Vive",
+        answers: ["Vivo", "Vives", "Vive"]
+      },
+      {
+        question: "What is the nosotros form of 'ser' in past tense?",
+        correct: "Fuimos",
+        answers: ["Fuimos", "Somos", "Eran"]
+      },
+      {
+        question: "What is the yo form of 'tener' in future tense?",
+        correct: "Tendré",
+        answers: ["Tendrá", "Tendré", "Tienes"]
+      },
+      {
+        question: "What is the yo form of 'escribir' in present tense?",
+        correct: "Escribo",
+        answers: ["Escribe", "Escribimos", "Escribo"]    
+      },
+      {
+        question: "What is the tú form of 'hacer' in present tense?",
+        correct: "Haces",
+        answers: ["Haces", "Hago", "Hace"]
+      },
+      {
+        question: "What is the nosotros form of 'estar' in present tense?",
+        correct: "Estamos",
+        answers: ["Estás", "Estamos", "Están"]
+      },
+      {
+        question: "What is the ellos/ellas form of 'beber' in present tense?",
+        correct: "Beben",
+        answers: ["Bebes", "Beben", "Bebemos"]
+      },
+      {
+        question: "What is the yo form of 'poder' in present tense?",
+        correct: "Puedo",
+        answers: ["Puedo", "Puedes", "Pueda"]
+      }
+    ];
 
     class Ball {
       constructor(questionData, answer) {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height; // start at the bottom
         this.size = 150;
-        this.speedY = 4.5;
+        this.speedY = 7.7;
         this.speedX = (Math.random() - 0.5) * 8;
         this.question = questionData.question;
         this.answers = questionData.answers;
@@ -42,7 +91,7 @@ function Beachball() {
       update() {
         this.y -= this.speedY;
         this.x += this.speedX;
-        this.speedY -= 0.02; // gravity effect
+        this.speedY -= 0.05; // Gravity effect
         if (this.x + this.size > canvas.width || this.x - this.size < 0) {
           this.speedX *= -1;
         }
@@ -61,9 +110,8 @@ function Beachball() {
       }
     }
 
-    // spawn only three balls for each questions
     function spawnBalls() {
-      const randomQuestion = beachballQuestions[Math.floor(Math.random() * beachballQuestions.length)];
+      const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
       currentQuestionDataRef.current = randomQuestion;
       const shuffledAnswers = [...randomQuestion.answers].sort(() => Math.random() - 0.5);
       const newBalls = [];
@@ -108,7 +156,6 @@ function Beachball() {
         }
       });
 
-      // set the message when the ball is clicked on
       if (hitBall) {
         if (hitBall.currentAnswer === hitBall.correctAnswer) {
           setMessage("Correct!");
