@@ -17,7 +17,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000; //dynamic port or default
 
-const uri = "mongodb+srv://abigailerefah:8491NKQcpKBhEvJn@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
+const uri = "mongodb+srv://abigailerefah:@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 //may have to save remeberMe, maybe a boolean
