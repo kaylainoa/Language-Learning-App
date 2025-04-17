@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import "./beachball.css";
 import image5 from "./Assets/image5.png";
 import beachballImage from "./Assets/beachball.png";
+import Scoreboard from './Components/Scoreboard';
+import questions from './data.json';
 
 function Beachball() {
   const canvasRef = useRef(null);
@@ -62,7 +64,8 @@ function Beachball() {
     }
 
     function spawnBalls() {
-      const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+      const beachballQuestions = questions["beachball-questions"];
+      const randomQuestion = beachballQuestions[Math.floor(Math.random() * beachballQuestions.length)];
       currentQuestionDataRef.current = randomQuestion;
       const shuffledAnswers = [...randomQuestion.answers].sort(() => Math.random() - 0.5);
       const newBalls = [];
@@ -73,6 +76,7 @@ function Beachball() {
       setCurrentQuestion(randomQuestion.question);
       setMessage("");
     }
+    
 
     function reSpawnBalls() {
       if (currentQuestionDataRef.current) {
@@ -166,9 +170,7 @@ function Beachball() {
   <canvas ref={canvasRef}></canvas>
 
   {gameOver ? (
-    <div className="game-over-overlay">
-      <h2>🎉 Game Over! You reached 100 points! 🎉</h2>
-    </div>
+    <Scoreboard isWin = {gameOver} score = {score}/>
   ) : (
     <div className="overlay-text">
       <h1>Hit the ball with the correct conjugation!</h1>
@@ -179,7 +181,8 @@ function Beachball() {
       </div>
     </div>
   )}
-</div>  );
+</div>  
+);
 }
 
-export default BeachBall;
+export default Beachball;
