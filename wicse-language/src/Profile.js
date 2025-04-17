@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Profile.css';
+import axios from 'axios';
+
 
 function Profile() {
   // Sample user data - would come from props or API in a real app
   const [userData, setUserData] = useState({
     username: "WICSE Design Team",
-    email: "springdesign@wicse.com",
+    email: "loading...",
     language: "Spanish",
     level: 8,
     totalLevels: 15,
@@ -17,6 +19,31 @@ function Profile() {
       { name: "Grammar Guru", description: "Complete all grammar exercises in Level 5", earned: false }
     ]
   });
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem('userEmail');
+    if (!userEmail) return;
+
+    axios.get('http://localhost:3000/profile', {
+      params: { email: userEmail }
+    })
+    .then(response => {
+      if (response.data) {
+        setUserData(prev => ({
+          ...prev,
+          email: response.data.email,
+          username: response.data.username || "No username",
+          joinDate: new Date(response.data.createdAt).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          }),
+          // ...add other fields as needed
+        }));
+      }
+    })
+    .catch(error => {
+      console.error("Error fetching user data:", error);
+    });
+  }, []);
 
   // Calculate completion percentage
   const completionPercentage = (userData.level / userData.totalLevels) * 100;

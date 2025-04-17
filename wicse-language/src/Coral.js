@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Fish from './Assets/FishImage.PNG';
 import CoralPic from './Assets/coralll.png';
 import Ocean from './Assets/water.png';
-
+import data from "./data.json";
 
 function Coral() {
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -10,65 +10,20 @@ function Coral() {
   const [selectedQuestions, setSelectedQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const totalQuestions = 10; // Adjust based on your questions array
+  const coralCount = 0;
+  const fishPosition = 0;
 
-
-  const questions = [
-    { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
-    { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
-    { question: 'Mi madre está (happy)________ porque ganó un premio.', answer: 'feliz' },
-    { question: '"Rojo" means ________. (color)', answer: 'red' },
-    { question: '"Manzana" is the Spanish word for ________. (fruit)', answer: 'apple' },
-    { question: 'The Spanish word for "sun" is _____', answer: 'sol' },
-    { question: 'The Spanish word for "book" is _____', answer: 'libro' },
-    { question: 'The Spanish word for "dog" is _____', answer: 'perro' },
-    { question: 'The Spanish word for "shirt" is _____', answer: 'camisa'},
-    { question: 'The Spanish word for "bed" is _____', answer: 'cama'},
-    {question: 'The Spanish word for "table" is _____', answer: 'mesa' },
-    { question: 'The Spanish word for "window" is _____', answer: 'ventana' },
-    { question: 'The Spanish word for "chair" is _____', answer: 'silla' },
-    { question: 'The Spanish word for "water" is _____', answer: 'agua' },
-    { question: 'The Spanish word for "fire" is _____', answer: 'fuego' },
-    { question: 'The Spanish word for "door" is _____', answer: 'puerta' },
-    { question: 'The Spanish word for "house" is _____', answer: 'casa' },
-    { question: 'The Spanish word for "flower" is _____', answer: 'flor' },
-    { question: 'The Spanish word for "cat" is _____', answer: 'gato' },
-    { question: 'The Spanish word for "tree" is _____', answer: 'arbol' }
-  ];
-
-
-  // Function to shuffle the questions
-  const Randomize = (array) => {
-    return array.sort(() => Math.random() - 0.5);
-  };
-
-
-  const scoreBoard = (score) => {
-    console.log("Final Coral Score:", score);
-  };
-
-
-  useEffect(() => {
-    const shuffledQuestions = Randomize([...questions]).slice(0, totalQuestions);
-    setSelectedQuestions(shuffledQuestions);
-  }, []);
-
-
-  useEffect(() => {
-    if (questionIndex >= totalQuestions) {
-      scoreBoard(totalQuestions);
-    }
-  }, [questionIndex]);
-
-
-  const fishPosition = selectedQuestions.length > 0
-    ? (questionIndex / selectedQuestions.length) * 100
-    : 0;
-
-
-  const coralCount = selectedQuestions.length > 0
-    ? selectedQuestions.length - questionIndex
-    : 0;
-
+  const questions = data["coral-questions"]
+  // [
+  //   { question: 'Yo (speak) ________ español todos los días.', answer: 'hablo' },
+  //   { question: 'Ellos (have) ________ una fiesta el fin de semana pasado.', answer: 'tuvieron' },
+  //   { question: 'Mi madre está (happy)________ porque ganó un premio.', answer: 'feliz' },
+  //   { question: '"Rojo" means ________. (color)', answer: 'red' },
+  //   { question: '"Manzana" is the Spanish word for ________. (fruit)', answer: 'apple' },
+  //   { question: 'The Spanish word for "sun" is _____', answer: 'sol' },
+  //   { question: 'The Spanish word for "book" is _____', answer: 'libro' },
+  //   { question: 'The Spanish word for "dog" is _____', answer: 'perro' },
+  // ];
 
   const handleAnswerSubmit = () => {
     if (userAnswer.trim().toLowerCase() === selectedQuestions[questionIndex].answer.toLowerCase()) {

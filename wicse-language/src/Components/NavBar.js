@@ -13,9 +13,9 @@ const NavBar = () => {
           <Link to="/" className="navbar-logo">
             <img src="/FluentFeathers.svg" alt="Parrot Logo" className="navbar-logo-image" />
           </Link>
-          <div className="player-points">
-            <span className="points-label">Points:</span>
-            <span className="points-value">{playerPoints}</span>
+          <div className="player-points-navbar">
+            <span className="points-label-navbar">Points:</span>
+            <span className="points-value-navbar">{playerPoints}</span>
           </div>
         </div>
         

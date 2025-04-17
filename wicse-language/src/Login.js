@@ -14,7 +14,8 @@ const Login = () => {
 
     axios.post('http://localhost:3000/login', { email, password, rememberMe })
     .then((response) => {
-      console.log("Login successful:", response.data);
+      // Save the email to localStorage after successful login
+      localStorage.setItem('userEmail', email);
       alert("Login successful!");
     })
     .catch((error) => {

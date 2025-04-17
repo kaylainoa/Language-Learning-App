@@ -17,7 +17,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000; //dynamic port or default
 
-const uri = "mongodb+srv://abigailerefah:8491NKQcpKBhEvJn@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
+const uri = "mongodb+srv://abigailerefah:@user-authentication.atn31.mongodb.net/User?retryWrites=true&w=majority&appName=User-Authentication";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 //may have to save remeberMe, maybe a boolean
@@ -26,7 +26,7 @@ mongoose.connect(uri)
 .then(() => {
   console.log("connected to db", mongoose.connection.name);
   app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+    console.log(`Server is running on port ${PORT}`);
   });
 })
 .catch((error) => {
@@ -54,6 +54,7 @@ app.post('/login', async(req, res) => {//used to create and save users
   }
 });
 
+/*
 app.get('/login', async (req, res) => { // Check if a user is in the database
   try {
     const { user, pass } = req.query; // Use query parameters
@@ -66,4 +67,41 @@ app.get('/login', async (req, res) => { // Check if a user is in the database
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+});
+*/
+
+// POST /login: Authenticate user
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email, password });
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "Invalid email or password" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// GET /profile: Get user by email
+app.get('/profile', async (req, res) => {
+  try {
+    const { email } = req.query;
+    const user = await User.findOne({ email });
+    user
+      ? res.status(200).json(user)
+      : res.status(404).json({ message: "User not found" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+const path = require('path');
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });

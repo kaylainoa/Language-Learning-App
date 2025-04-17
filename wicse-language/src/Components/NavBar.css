@@ -64,12 +64,12 @@
 .navbar-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #4D4236 !important;  /* Made darker and added !important to ensure it's applied */
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  color: #ac671d !important;  /* Made darker and added !important to ensure it's applied */
+  text-shadow: 1px 1px 2px rgba(139, 33, 33, 0.4);
 }
 
 /* Points styling */
-.player-points {
+.player-points-navbar {
   margin-left: 20px;
   display: flex;
   align-items: center;
@@ -78,13 +78,13 @@
   border-radius: 16px;
 }
 
-.points-label {
+.points-label-navbar {
   font-weight: 600;
   margin-right: 5px;
-  color: #7D6E5D;
+  color: #9f6420;
 }
 
-.points-value {
+.points-value-navbar {
   font-weight: 700;
   color: #E89F71;
 }
@@ -103,7 +103,7 @@
 
 .navbar-link {
   text-decoration: none;
-  color: #46C7AD;  /* Teal color for nav links */
+  color: #021d18;  /* Teal color for nav links */
   font-weight: 600;
   font-size: 1rem;
   padding: 0.5rem 1rem;
@@ -135,7 +135,7 @@
 }
 
 .login-link {
-  background-color: white;
+  background-color: #eaad67;
   color: #46C7AD;  /* Teal color for login button text */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -144,7 +144,7 @@
 }
 
 .login-link:hover {
-  background-color: #f8f8f8;
+  background-color: #b79b7b;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -205,6 +205,7 @@
   .navbar-text {
     font-size: 1.1rem;
     /* Removed the color definition here to prevent override */
+    
   }
   
   .navbar-link {

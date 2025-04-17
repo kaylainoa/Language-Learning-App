@@ -17,7 +17,6 @@ import Coral from './Coral';
 import Surfing from './Surfing';
 import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
-//import WinScreen from './Components/WinScreen';
 
 // navbar links
 import Login from './Login';
