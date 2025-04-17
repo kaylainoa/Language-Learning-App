@@ -63,32 +63,19 @@ const Signup = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>First Name</label>
+            <label>Full Name</label>
             <div className="input-wrapper">
               <span className="input-icon">👤</span>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                placeholder="First name"
+                placeholder="Full Name"
                 required
               />
             </div>
           </div>
 
-          <div className="form-group">
-            <label>Last Name</label>
-            <div className="input-wrapper">
-              <span className="input-icon">👤</span>
-              <input
-                type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Last name"
-                required
-              />
-            </div>
-          </div>
 
           <div className="form-group">
             <label>Email</label>
@@ -139,7 +126,7 @@ const Signup = () => {
 
         <div className="signup-link">
           Already have an account?{" "}
-          <a href="#">
+          <a href="/login">
             Log in
           </a>
         </div>

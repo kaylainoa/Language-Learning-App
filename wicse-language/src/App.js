@@ -18,6 +18,7 @@ import Surfing from './Surfing';
 import Coconut from './Components/Coconut';
 import BeachBall from './beachball';
 import Comprehension from './Comprehension'; 
+import SignUp from './SignUp'; // Sign up page
 
 // navbar links
 import Login from './Login';
@@ -42,6 +43,7 @@ function App() {
           
 
           <Route path="/ComingSoon" element={<ComingSoon />} />
+          <Route path="/SignUp" element={<SignUp />} />
 
           {/* minigame pages */}
           <Route path="/volcano" element={<Volcanogame />} />
