@@ -21,7 +21,6 @@ import Comprehension from './Comprehension';
 
 // navbar links
 import Login from './Login';
-import Chat from './Chat';
 import Profile from './Profile';
 
 import ComingSoon from './ComingSoon';
@@ -38,7 +37,6 @@ function App() {
         <Routes>
           {/* nav bar links */}
           <Route path="/" element={<Home />} />
-          <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
           
